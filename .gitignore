@@ -102,3 +102,15 @@ dist
 
 # TernJS port file
 .tern-port
+bruin-workout/public/index.html
+bruin-workout/public/robots.txt
+bruin-workout/README.md
+bruin-workout/src/App.css
+bruin-workout/src/App.js
+bruin-workout/src/App.test.js
+bruin-workout/src/index.css
+bruin-workout/src/index.js
+bruin-workout/src/logo.svg
+bruin-workout/.gitignore
+bruin-workout/src/reportWebVitals.js
+bruin-workout/src/setupTests.js
