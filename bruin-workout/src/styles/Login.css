@@ -1,3 +1,85 @@
-.login-header {
+.login-page {
     text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+h4 {
+    font-size: 36px;
+    line-height: 10px;
+}
+
+.login-field { 
+    line-height: 7em;
+}
+
+.login-field input::placeholder {
+    color: #E9BA42;
+    font-size: 24px;
+    line-height: 42px;
+}
+
+.login-field input {
+    background-color: #DA3939;
+    border: 0;
+    width: 525px;
+    height: 69px;  
+    color: #E9BA42;
+    font-size: 24px;
+    line-height: 42px;
+}
+
+.login-buttons {
+    line-height: 3em;
+}
+
+.login-buttons input {
+    cursor: pointer;
+    border: 0;
+    background-color: #DA3939;
+    color: #E9BA42;
+    width: 311px;
+    height: 41px;
+}
+
+.rock-serious {
+    position: absolute;
+    width: 321px;
+    height: 363px;
+    top: 100px;
+    left: 100px;    
+}
+
+.rock-flexing1 {
+    width: 201px;
+    height: 329px;
+    position: absolute;
+    bottom: 100px;
+    left: 200px;
+}
+
+.rock-flexing2 {
+    width: 201px;
+    height: 329px;
+    position: absolute;
+    top: 100px;
+    right: 200px;
+}
+
+.rock-smiling {
+    bottom: 100px;
+    right: 100px;
+    width: 238px;
+    height: 241px;
+    position: absolute;
 }
