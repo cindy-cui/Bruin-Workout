@@ -1,23 +1,24 @@
-import rock from './assets/rock-flexing.png';
 import './styles/App.css';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Home from './components/Planner';
+import Profile from './components/Profile';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={rock} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="Login">
+        <Login />
+      </div>
+      <div className="Signup">
+        <Signup />
+      </div>
+      <div className="Home">
+        <Home />
+      </div>
+      <div className="Profile">
+        <Profile />
+      </div>
     </div>
   );
 }
