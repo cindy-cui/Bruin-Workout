@@ -1,11 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import rock from './assets/rock-flexing.png';
+import './styles/App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={rock} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
