@@ -20,7 +20,7 @@ export default function LoginPages() {
                 </div>
                 <div class="login-field">
                     <label for="userPassword"></label>
-                    <input placeholder="Password"></input>
+                    <input type="password" placeholder="Password"></input>
                 </div>
                 <div class="login-buttons">
                     <input type="submit" value="LOG IN" class="login-button"></input><br></br>
