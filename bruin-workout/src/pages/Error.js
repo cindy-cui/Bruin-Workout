@@ -2,7 +2,7 @@ import NavigationBar from "../components/NavigationBar";
 
 export default function Error(){
     return(<div>
-        <NavigationBar />
+        <NavigationBar page="Error"/>
         <h1>
             Oops
         </h1>

@@ -23,11 +23,14 @@ function NavigationBar(props){
                 </ul>
                 </div>);
         }
-        return(<div className="navigation">
-        <ul>
-                <li><Link to="/">Home </Link></li>
-        </ul>
-        </div>);
+        if(props.page==="Error"){
+                return(<div className="navigation">
+                <ul>
+                        <li><Link to="/">Home </Link></li>
+                </ul>
+                </div>);
+        }
+        return null;
 }
 
 export default NavigationBar;
