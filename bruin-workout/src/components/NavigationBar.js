@@ -8,14 +8,6 @@ import NavigationError from '../pages/Error';
 import PrivateRoute from './PrivateRoute';
 
 function NavigationBar(props){
-        if(props.page==="Login"){
-                return(<div>
-                </div>);
-        }
-        if(props.page==="Signup"){
-                return(<div>
-                </div>);
-        }
         if(props.page==="Home"){
                 return(<div className="navigation">
                 <ul>
@@ -34,7 +26,6 @@ function NavigationBar(props){
         return(<div className="navigation">
         <ul>
                 <li><Link to="/">Home </Link></li>
-                <p> error</p>
         </ul>
         </div>);
 }
