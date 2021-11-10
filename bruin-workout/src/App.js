@@ -1,5 +1,9 @@
 import './styles/App.css';
+<<<<<<< Updated upstream
 import LoginPages from './components/Login';
+=======
+import LoginPages from './pages/Login';
+>>>>>>> Stashed changes
 
 function App() {
   return (
