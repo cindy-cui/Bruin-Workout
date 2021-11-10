@@ -3,6 +3,7 @@ import rockSerious from '../assets/rock-serious.jpeg';
 import rockSmiling from '../assets/rock-smiling.jpeg';
 import rockFlexing from '../assets/rock-flexing.png';
 import LoginPrompts from '../components/LoginPrompts';
+import { Link } from 'react-router-dom';
 
 export default function LoginPages() {
     return (

@@ -1,11 +1,6 @@
 import {Link} from "react-router-dom";
 import React from "react";
-import Login from '../pages/Login';
-import Signup from '../pages/Signup';
-import Home from '../pages/Home';
-import Profile from '../pages/Profile';
-import NavigationError from '../pages/Error';
-import PrivateRoute from './PrivateRoute';
+
 
 function NavigationBar(props){
         if(props.page==="Home"){
@@ -27,6 +22,13 @@ function NavigationBar(props){
                 return(<div className="navigation">
                 <ul>
                         <li><Link to="/">Home </Link></li>
+                </ul>
+                </div>);
+        }
+        if(props.page==="Signup"){
+                return(<div className="navigation">
+                <ul>
+                        <li><Link to="/login">Back to Login </Link></li>
                 </ul>
                 </div>);
         }
