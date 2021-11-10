@@ -2,10 +2,13 @@ import '../styles/Login.css';
 import rockSerious from '../assets/rock-serious.jpeg';
 import rockSmiling from '../assets/rock-smiling.jpeg';
 import rockFlexing from '../assets/rock-flexing.png';
+import LoginPrompts from '../components/LoginPrompts';
+import NavigationBar from '../components/NavigationBar';
 
 export default function LoginPages() {
     return (
         <div class="login-page">
+            <NavigationBar page="Login"/>
             <h1>Face Off</h1>
             <br></br>
             <h4>Welcome</h4>
@@ -14,18 +17,7 @@ export default function LoginPages() {
                 <img src={rockFlexing} alt="" class="rock-flexing1"/>
                 <img src={rockFlexing} alt="" class="rock-flexing2"/>
                 <img src={rockSmiling} alt="" class="rock-smiling"/>
-                <div class="login-field">
-                    <label for="userEmail"></label>
-                    <input placeholder="Email Address"></input>
-                </div>
-                <div class="login-field">
-                    <label for="userPassword"></label>
-                    <input type="password" placeholder="Password"></input>
-                </div>
-                <div class="login-buttons">
-                    <input type="submit" value="LOG IN" class="login-button"></input><br></br>
-                    <input type="submit" value="SIGN UP" class="login-button"></input>
-                </div>
+                <LoginPrompts />
             </form>
         </div>
     );

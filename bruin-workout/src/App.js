@@ -5,19 +5,17 @@ import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import {Route, Routes } from 'react-router-dom';
-import NavigationBar from './components/NavigationBar';
-import NavigationError from './components/Error';
+import Error from './pages/Error';
 import PrivateRoute from './components/PrivateRoute';
 function App() {
   return (
     <div className="App">
-    <NavigationBar/>
       <Routes>
         <Route path='/' element={<PrivateRoute />} />
         <Route path='/login' element={<Login />}/> 
         <Route path='/signup' element={<Signup />}/>
         <Route path='/myprofile' element={<Profile /> /*username={user.username}*/}/>
-        <Route element={<NavigationError />} />
+        <Route element={<Error />} />
       </Routes>
     </div>
   );

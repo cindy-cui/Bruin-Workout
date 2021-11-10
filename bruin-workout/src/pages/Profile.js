@@ -1,8 +1,10 @@
-function Profile(){
+import NavigationBar from '../components/NavigationBar';
+
+export default function Profile(){
     return(<div>
-    <h1>
-        Profile
-    </h1>
+        <NavigationBar page="Profile"/>
+        <h1>
+            Profile
+        </h1>
     </div>);
 }
-export default Profile;

@@ -1,5 +1,8 @@
-function Error(){
+import NavigationBar from "../components/NavigationBar";
+
+export default function Error(){
     return(<div>
+        <NavigationBar />
         <h1>
             Oops
         </h1>
@@ -8,4 +11,3 @@ function Error(){
         </p>
     </div>);
 }
-export default Error;
