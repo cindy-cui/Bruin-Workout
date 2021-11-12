@@ -1,12 +1,8 @@
 // Import the functions you need from the SDKs you need
 import app from "./FirebaseConfig";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword ,onAuthStateChanged ,signOut } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 
 //keep track of state changes
-
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
