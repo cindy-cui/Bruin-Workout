@@ -19,6 +19,7 @@ function signin(email,password){
 
 export default function LoginPrompts(){
     let navigate=useNavigate();
+
     async function handleSignin(){
     navigate("/signup");
     }
@@ -26,11 +27,17 @@ export default function LoginPrompts(){
         let email = document.getElementById("email").value;
         let pwd = document.getElementById("password").value;
         //todo: check input
-        if(signin(email,pwd)){
+        if (email==="" || pwd===""){
+          //todo: error
+          return;
+        }
+        if(/*signin(email,pwd)*/ true){
             //todo:accept user; move to new page
+            navigate("/home");
         }
         else{
-            //todo:error message
+            //todo:error
+            return;
         }
     }
     return(<div>
