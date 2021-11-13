@@ -1,10 +1,17 @@
-
 class Workout{
     constructor(name, type){
         this.name = name;
         this.type = type;
     }
+    get theName(){
+        return this.name;
+    }
+    get getType(){
+        return this.type;
+    }
 }
+
+
 let benchPress = new Workout("BenchPress", "chest");
 let chestFly = new Workout("ChestFly", "chest");
 let dips = new Workout("Dips", "chest");
@@ -35,3 +42,14 @@ let gobletSquat = new Workout("GobletSquat", "legs");
 
 let running = new Workout("Running", "cardio");
 let basketball = new Workout("Basketball", "cardio");
+
+const Workouts = [benchPress, chestFly, dips, tricepExtension, skullCrusher, tricepDips, 
+tricepPullDown, rows, latPulldowns, bentOverRow, pullUps, twentyOnes, hammerCurls, inclineDumbbellCurl, shrugs, shoulderPress,
+squat, deadlift, splitSquat, legCurlMachine, legPressMachine, gobletSquat, running, basketball];
+
+let curWorkout = bentOverRow; //modify this to be whatever workout is currently selected
+for(let i = 0; i < Workouts.size(); i++){
+    if(curWorkout.type() == Workouts[i].type()){
+        //let curWorkout pop up as a suggestion
+    }
+}
