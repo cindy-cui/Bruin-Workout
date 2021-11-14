@@ -32,12 +32,12 @@ export default function ProfileInformation(props){
             const userRef= doc(usersRef,props.username);//get document reference of correct profile.
             const user = await getDoc(userRef);
             if(user.exists()){//retrieve data
-                username=user.get(username);
-                age=user.get(age);
-                height=user.get(height);
-                ethnicity=user.get(ethnicity);
-                gender=user.get(gender);
-                favWorkout=user.get(favWorkout);
+                username=user.get("username");
+                age=user.get("age");
+                height=user.get("height");
+                ethnicity=user.get("ethnicity");
+                gender=user.get("gender");
+                favWorkout=user.get("favWorkout");
             }
             else{}//could not retrieve document snapshot
         }
