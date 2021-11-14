@@ -1,9 +1,9 @@
 import {useNavigate} from "react-router-dom";
 import { userData } from "./UserData";
-import ProfileInformation from "./ProfileInformation"
+import {collection,doc,getDoc} from "firebase/firestore";
+import db from "./Database";
 
-
-export default function updateProfile (){
+export default function UpdateProfile (){
 
     let username="";
     let age="";
@@ -11,19 +11,38 @@ export default function updateProfile (){
     let ethnicity="";
     let gender="";
     let favWorkout="";
-
-    ProfileInformation.getUserInfo(); 
-    
-    function submitForm(){
-
-        let username = document.getElementById("usernameN").value;
-        let age = document.getElementById("ageN").value;
-        let height = document.getElementById("heightN").value;
-        let ethnicity = document.getElementById("ethnicityN").value;
-        let gender = document.getElementById("genderN").value;
-        let favWorkout = document.getElementById("favWorkoutN").value;
+    //This can either be the user who clicked "My Profile"
+    // or the results of a profile search
+    async function getUserInfo(){// Async call so getDoc can finish getting its data from server
+        //before rest of program runs
+        const usersRef=collection(db,"users"); //get collection reference from "users"
+        try {
+            const userRef= doc(usersRef,""/*should be user's username*/);//get document reference of correct profile.
+            const user = await getDoc(userRef);
+            if(user.exists()){//retrieve data
+                username=user.get("username");
+                age=user.get("age");
+                height=user.get("height");
+                ethnicity=user.get("ethnicity");
+                gender=user.get("gender");
+                favWorkout=user.get("favWorkout");
+            }
+            else{}//could not retrieve document snapshot
+        }
+        catch{
+        //could not get document reference of username
+        }
     }
+    getUserInfo();
 
+    function submitForm(){
+        username = document.getElementById("usernameN").value;
+        age = document.getElementById("ageN").value;
+        height = document.getElementById("heightN").value;
+        ethnicity = document.getElementById("ethnicityN").value;
+        gender = document.getElementById("genderN").value;
+        favWorkout = document.getElementById("favWorkoutN").value;
+    }
 
     return(<div>
                <div className="login-field">
@@ -50,9 +69,6 @@ export default function updateProfile (){
                     <label htmlFor="updateFavWorkout"></label>
                     <input placeholder="Update Favorite Workout" id="favWorkoutN" defaultValue = {favWorkout} ></input>
                 </div>
-
-
-
 
                 <div className="login-buttons">
                     <input value="UPDATE PROFILE" className="updateProfile-button"  onClick={submitForm}/>

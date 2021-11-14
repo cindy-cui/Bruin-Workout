@@ -1,6 +1,6 @@
 import NavigationBar from '../components/NavigationBar';
 import ProfileInformation from '../components/ProfileInformation';
-import updateProfile from '../components/updateProfile';
+import UpdateProfile from '../components/updateProfile';
 
 export default function Profile(props){
 
@@ -11,7 +11,7 @@ export default function Profile(props){
             Profile
         </h1>
         <ProfileInformation username=""/>
-        <updateProfile/>
+        <UpdateProfile/>
                 
         
     </div>);
