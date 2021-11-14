@@ -1,8 +1,20 @@
 import {useNavigate} from "react-router-dom";
 import { userData } from "./UserData";
-import {collection,doc,getDoc} from "firebase/firestore";
+import {collection,doc,getDoc, updateDoc} from "firebase/firestore";
 import db from "./Database";
 import rockHeadshot from '../assets/rock-headshot.jpeg';
+
+/*  Here is how the object for each user is stored by default
+ const userData = {
+    username:"",
+    age:"",
+    height:"",
+    ethnicity:"",
+    gender:"",
+    favWorkout:"",
+    workouts:[],
+};
+*/
 
 export default function UpdateProfile (){
 
@@ -36,16 +48,46 @@ export default function UpdateProfile (){
     }
     getUserInfo();
 
+   
+
+
     function submitForm(){
-        username = document.getElementById("usernameN").value;
-        age = document.getElementById("ageN").value;
-        height = document.getElementById("heightN").value;
-        ethnicity = document.getElementById("ethnicityN").value;
-        gender = document.getElementById("genderN").value;
-        favWorkout = document.getElementById("favWorkoutN").value;
+        let usernameN = document.getElementById("usernameN").value;
+        let ageN = document.getElementById("ageN").value;
+        let heightN = document.getElementById("heightN").value;
+        let ethnicityN = document.getElementById("ethnicityN").value;
+        let genderN = document.getElementById("genderN").value;
+        let favWorkoutN = document.getElementById("favWorkoutN").value;
+
+
+        const usersRef=collection(db,"users"); //get collection reference from "users"
+        const userRef; 
+        try {
+            userRef= doc(usersRef,""/*should be user's username*/);//get document reference of correct profile.
+        }
+        catch{
+            //could not get document reference of username
+        }
+
+        async function changeProperties(userReference){
+            await updateDoc(userRef, {
+                username = usernameN, 
+                age = ageN,
+                height = heightN,
+                ethnicity = ethnicityN,
+                gender = genderN,
+                favWorkout = favWorkoutN 
+            }); 
+        }
+
+       
+        changeProperties(userRef); 
+
     }
 
     return(<div style={{ backgroundImage: `url(${rockHeadshot})`}}>
+
+
                <div className="login-field">
                     <label htmlFor="updateUsername"></label>
                     <input placeholder="Update Username" id="usernameN" defaultValue = {username} ></input>

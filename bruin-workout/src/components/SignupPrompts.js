@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword,updateProfile} from "firebase/auth"
 import { useNavigate } from "react-router";
 import { doc, setDoc } from "firebase/firestore";
 import db from "./Database";
+import { userData } from "./UserData";
 
 /*  Here is how the object for each user is stored by default
  const userData = {
@@ -24,6 +25,7 @@ export default function SignupPrompts(){
     navigate("/home");
   }
   async function addUser(username){
+    try{
     await setDoc(doc(db, "users",username),{
       username:username,
       age:"",
@@ -41,27 +43,28 @@ export default function SignupPrompts(){
         sunday:{name:"", type:""},
       }, 
     });
-  }
-  function signUp(){
-  let email = document.getElementById("email").value;
-  let pwd = document.getElementById("password").value;
-  let username = document.getElementById("username").value;
-    createUserWithEmailAndPassword(auth, email, pwd)
-          .then((userCredential) => {
-            // Signed in 
-            // ...
-            addUser(username);
-            
-            console.log("made user");
-            signedUp();
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-             errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-            // ..
-      });
     }
+    catch{
+      console.log("could not upload information");
+    }
+    userData.username=username;
+  }
+  async function signUp(){
+    let email = document.getElementById("email").value;
+    let pwd = document.getElementById("password").value;
+    let username = document.getElementById("username").value;
+    try{
+      await createUserWithEmailAndPassword(auth, email, pwd);
+      await addUser(username);
+      console.log("added user");
+      signedUp();
+    }   
+    catch (error){     
+      const errorCode = error.code;
+      errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+    }
+  }
   return(<div>
     <div className="login-field">
       <input placeholder="Email Address" id="email"/>
