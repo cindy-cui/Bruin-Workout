@@ -1,0 +1,19 @@
+h2 {
+    font-size: 80px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.literal-rock1 {
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    left: 5%;
+}
+
+
+.literal-rock2 {
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    right: 5%;
+}
