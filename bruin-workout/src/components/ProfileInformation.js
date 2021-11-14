@@ -47,13 +47,7 @@ export default function ProfileInformation(props){
         //could not get document reference of username
         }
     }
-    async function updateProfile(props){ //TODO: Implement
-        //may need to implement some checks regarding
-        //the new input a user types
-
-        await updateDoc()
-
-    }
+  
 
     getUserInfo();
     return(
