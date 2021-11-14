@@ -1,9 +1,20 @@
 import auth from "./Auth"
 import { createUserWithEmailAndPassword,updateProfile} from "firebase/auth"
 import { useNavigate } from "react-router";
-import { collection, addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import db from "./Database";
-import User from "./User";
+
+/*  Here is how the object for each user is stored by default
+ const userData = {
+    username:"",
+    age:"",
+    height:"",
+    ethnicity:"",
+    gender:"",
+    favWorkout:"",
+    workouts:[],
+};
+*/
 
 export default function SignupPrompts(){
   let navigate=useNavigate();
@@ -12,14 +23,23 @@ export default function SignupPrompts(){
   async function signedUp(){
     navigate("/home");
   }
-  async function setUpUser(username){
-    await updateProfile(auth,{displayName:username});
-  }
   async function addUser(username){
-    let newUser= new User();
-    newUser.setUsername(username);
-    const docRef = await addDoc(collection(db, "users"),{
-      user: newUser,
+    await setDoc(doc(db, "users",username),{
+      username:username,
+      age:"",
+      height:"",
+      ethnicity:"",
+      gender:"",
+      favWorkout:"",
+      workouts:{
+        monday:{name:"", type:""},
+        tuesday:{name:"", type:""},
+        wednesday:{name:"", type:""},
+        thursday:{name:"", type:""},
+        friday:{name:"", type:""},
+        saturday:{name:"", type:""},
+        sunday:{name:"", type:""},
+      }, 
     });
   }
   function signUp(){
@@ -30,7 +50,7 @@ export default function SignupPrompts(){
           .then((userCredential) => {
             // Signed in 
             // ...
-            addUser();
+            addUser(username);
             
             console.log("made user");
             signedUp();
