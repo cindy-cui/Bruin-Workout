@@ -23,9 +23,6 @@ export default function SignupPrompts(){
   async function signedUp(){
     navigate("/home");
   }
-  async function setUpUser(username){
-    await updateProfile(auth,{displayName:username});
-  }
   async function addUser(username){
     await setDoc(doc(db, "users",username),{
       username:username,
@@ -45,7 +42,7 @@ export default function SignupPrompts(){
           .then((userCredential) => {
             // Signed in 
             // ...
-            addUser();
+            addUser(username);
             
             console.log("made user");
             signedUp();
