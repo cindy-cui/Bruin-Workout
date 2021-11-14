@@ -15,7 +15,7 @@ class User{
         return this.age; 
     }
 
-    get userEthnicity(){
+    get userEthnicity(){get
         return this.ethnicity; 
     }
 

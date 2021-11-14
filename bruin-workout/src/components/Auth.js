@@ -5,6 +5,7 @@ import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword ,onA
 //keep track of state changes
 /*onAuthStateChanged(auth, (user) => {
   if (user) {
+    // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     const uid = user.uid;
     const email = user.email; 
