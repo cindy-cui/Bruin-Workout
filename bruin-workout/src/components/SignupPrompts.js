@@ -31,7 +31,15 @@ export default function SignupPrompts(){
       ethnicity:"",
       gender:"",
       favWorkout:"",
-      workouts:[], 
+      workouts:{
+        monday:{name:"", type:""},
+        tuesday:{name:"", type:""},
+        wednesday:{name:"", type:""},
+        thursday:{name:"", type:""},
+        friday:{name:"", type:""},
+        saturday:{name:"", type:""},
+        sunday:{name:"", type:""},
+      }, 
     });
   }
   function signUp(){
