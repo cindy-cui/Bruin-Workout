@@ -7,6 +7,6 @@ export default function Profile(props){
         <h1>
             Profile
         </h1>
-        <ProfileInformation username="" />
+        <ProfileInformation username=""/>
     </div>);
 }

@@ -27,8 +27,7 @@ export default function SignupPrompts(){
     await updateProfile(auth,{displayName:username});
   }
   async function addUser(username){
-
-    const docRef = await setDoc(doc(db, "users",username),{
+    await setDoc(doc(db, "users",username),{
       username:username,
       age:"",
       height:"",

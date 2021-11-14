@@ -1,6 +1,8 @@
 import { userData } from "./UserData";
 import db from "./Database";
-import { collection,doc, setDoc,getDoc } from "firebase/firestore";
+import { collection,doc, getDoc } from "firebase/firestore";
+import auth from "./Auth";
+
 
 /*  Here is how the object for each user is stored by default
  const userData = {
@@ -14,7 +16,6 @@ import { collection,doc, setDoc,getDoc } from "firebase/firestore";
 };
 */
 
-
 export default function ProfileInformation(props){
     let username="";
     let age="";
@@ -22,31 +23,32 @@ export default function ProfileInformation(props){
     let ethnicity="";
     let gender="";
     let favWorkout="";
-    
     //This can either be the user who clicked "MY Profile"
     // or the results of a profile search
     async function getUserInfo(){// Async call so getDoc can finish getting its data from server
-        const usersRef=collection(db,"users");
+        //before rest of program runs
+        const usersRef=collection(db,"users"); //get collection reference from "users"
         try {
             const userRef= doc(usersRef,props.username);//get document of correct profile.
-            const docReference = await getDoc(userRef);
-            if(docReference.exists()){//retrieve data
-                username=docReference.get(username);
-                age=docReference.get(age);
-                height=docReference.get(height);
-                ethnicity=docReference.get(ethnicity);
-                gender=docReference.get(gender);
-                favWorkout=docReference.get(favWorkout);
+            const user = await getDoc(userRef);
+            if(user.exists()){//retrieve data
+                username=user.get(username);
+                age=user.get(age);
+                height=user.get(height);
+                ethnicity=user.get(ethnicity);
+                gender=user.get(gender);
+                favWorkout=user.get(favWorkout);
         }
         else{}//could not retrieve data
          }
         catch{
-        //could not get proper 
+        //could not get document of username
         }
-        
-        
     }
-    
+    async function updateProfile(props){
+
+    }
+
     getUserInfo();
     return(
         <div>
