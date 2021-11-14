@@ -3,7 +3,7 @@ import {collection, doc,getDoc,updateDoc,arrayRemove} from "firebase/firestore";
 import {Workout} from "./suggestions"
 
 export default function Options(props){
-    let workouts=[];
+    let workouts={};
     const usersRef=collection(db,"users"); //get collection reference from "users"
 
     async function getUserInfo(){// Async call so getDoc can finish getting its data from server
