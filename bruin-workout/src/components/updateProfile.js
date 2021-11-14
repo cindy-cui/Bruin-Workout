@@ -60,8 +60,9 @@ export default function UpdateProfile (){
 
 
         const usersRef=collection(db,"users"); //get collection reference from "users"
+        const userRef; 
         try {
-            const userRef= doc(usersRef,""/*should be user's username*/);//get document reference of correct profile.
+            userRef= doc(usersRef,""/*should be user's username*/);//get document reference of correct profile.
         }
         catch{
             //could not get document reference of username
