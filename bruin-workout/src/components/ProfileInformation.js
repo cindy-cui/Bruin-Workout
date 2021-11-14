@@ -1,6 +1,6 @@
 import { userData } from "./UserData";
 import db from "./Database";
-import { collection,doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc,updateDoc } from "firebase/firestore";
 import auth from "./Auth";
 
 
@@ -23,13 +23,13 @@ export default function ProfileInformation(props){
     let ethnicity="";
     let gender="";
     let favWorkout="";
-    //This can either be the user who clicked "MY Profile"
+    //This can either be the user who clicked "My Profile"
     // or the results of a profile search
     async function getUserInfo(){// Async call so getDoc can finish getting its data from server
         //before rest of program runs
         const usersRef=collection(db,"users"); //get collection reference from "users"
         try {
-            const userRef= doc(usersRef,props.username);//get document of correct profile.
+            const userRef= doc(usersRef,props.username);//get document reference of correct profile.
             const user = await getDoc(userRef);
             if(user.exists()){//retrieve data
                 username=user.get(username);
@@ -38,14 +38,16 @@ export default function ProfileInformation(props){
                 ethnicity=user.get(ethnicity);
                 gender=user.get(gender);
                 favWorkout=user.get(favWorkout);
+            }
+            else{}//could not retrieve document snapshot
         }
-        else{}//could not retrieve data
-         }
         catch{
-        //could not get document of username
+        //could not get document reference of username
         }
     }
-    async function updateProfile(props){
+    async function updateProfile(props){ //TODO: Implement
+        //may need to implement some checks regarding
+        //the new input a user types
 
     }
 
