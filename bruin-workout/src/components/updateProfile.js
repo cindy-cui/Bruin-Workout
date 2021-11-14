@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import { userData } from "./UserData";
 import {collection,doc,getDoc} from "firebase/firestore";
 import db from "./Database";
+import rockHeadshot from '../assets/rock-headshot.jpeg';
 
 export default function UpdateProfile (){
 
@@ -44,7 +45,7 @@ export default function UpdateProfile (){
         favWorkout = document.getElementById("favWorkoutN").value;
     }
 
-    return(<div>
+    return(<div style={{ backgroundImage: `url(${rockHeadshot})`}}>
                <div className="login-field">
                     <label htmlFor="updateUsername"></label>
                     <input placeholder="Update Username" id="usernameN" defaultValue = {username} ></input>
@@ -71,7 +72,7 @@ export default function UpdateProfile (){
                 </div>
 
                 <div className="login-buttons">
-                    <input value="UPDATE PROFILE" className="updateProfile-button"  onClick={submitForm}/>
+                    <input type="submit" value="UPDATE PROFILE" className="updateProfile-button"  onClick={submitForm}/>
                 </div>
                 
         </div>);

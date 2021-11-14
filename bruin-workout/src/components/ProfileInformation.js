@@ -2,6 +2,8 @@ import { userData } from "./UserData";
 import db from "./Database";
 import { collection, doc, getDoc,updateDoc } from "firebase/firestore";
 import auth from "./Auth";
+import rockHeadshot from '../assets/rock-headshot.jpeg'
+import literalRock from '../assets/literal-rock.jpg';
 
 
 /*  Here is how the object for each user is stored by default
@@ -58,9 +60,12 @@ export default function ProfileInformation(props){
     getUserInfo();
     return(
         <div>
-        <h3>
-            Username: {username}
-        </h3>
+        <img src={literalRock} alt="" className="literal-rock1"/>
+        <img src={literalRock} alt="" className="literal-rock2"/>
+        <h2>
+            JLin
+             {/* {username} */}
+        </h2>
         <h3>
             Age: {age}
         </h3>
