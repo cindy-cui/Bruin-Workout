@@ -1,44 +1,54 @@
 import {useNavigate} from "react-router-dom";
 import { userData } from "./UserData";
-import db from "./Database";
-import { collection, doc, getDoc,updateDoc } from "firebase/firestore";
-import auth from "./Auth";
+import ProfileInformation from "./ProfileInformation"
 
 
 export default function updateProfile (){
+
+    let username="";
+    let age="";
+    let height="";
+    let ethnicity="";
+    let gender="";
+    let favWorkout="";
+
+    ProfileInformation.getUserInfo(); 
+    
     function submitForm(){
 
-        let username = document.getElementById("username").value;
-        let age = document.getElementById("age").value;
-        let height = document.getElementById("height").value;
-        let ethnicity = document.getElementById("ethnicity").value;
-        let gender = document.getElementById("gender").value;
-        let favWorkout = document.getElementById("favWorkout").value;
+        let username = document.getElementById("usernameN").value;
+        let age = document.getElementById("ageN").value;
+        let height = document.getElementById("heightN").value;
+        let ethnicity = document.getElementById("ethnicityN").value;
+        let gender = document.getElementById("genderN").value;
+        let favWorkout = document.getElementById("favWorkoutN").value;
     }
+
+
     return(<div>
-                <div className="login-field">
+               <div className="login-field">
                     <label htmlFor="updateUsername"></label>
-                    <input placeholder="Update Username" id="username"></input>
+                    <input placeholder="Update Username" id="usernameN" defaultValue = {username} ></input>
                 </div>
                 <div className="login-field">
                     <label htmlFor="updateAge"></label>
-                    <input placeholder="Update Age" id="age"></input>
+                    <input placeholder="Update Age" id="ageN" defaultValue = {age} ></input>
                 </div>
                 <div className="login-field">
                     <label htmlFor="updateHeight"></label>
-                    <input placeholder="Update Height" id="height"></input>
+                    <input placeholder="Update Height" id="heightN" defaultValue = {height} ></input>
                 </div>
                 <div className="login-field">
                     <label htmlFor="updateEthnicity"></label>
-                    <input placeholder="Update Ethnicity" id="ethnicity"></input>
+                    <input placeholder="Update Ethnicity" id="ethnicityN" defaultValue = {ethnicity}></input>
                 </div>
                 <div className="login-field">
                     <label htmlFor="updateGender"></label>
-                    <input placeholder="Update Gender" id="gender"></input>
+                    <input placeholder="Update Gender" id="genderN" defaultValue = {gender} ></input>
                 </div>
                 <div className="login-field">
                     <label htmlFor="updateFavWorkout"></label>
-                    <input placeholder="Update Favorite Workout" id="favWorkout"></input>
+                    <input placeholder="Update Favorite Workout" id="favWorkoutN" defaultValue = {favWorkout} ></input>
                 </div>
 
 
