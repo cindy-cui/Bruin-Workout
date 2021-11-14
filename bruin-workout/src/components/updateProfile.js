@@ -1,10 +1,11 @@
-import NavigationBar from '../components/NavigationBar';
-import ProfileInformation from '../components/ProfileInformation';
-import updateProfile from '../components/updateProfile';
+import {useNavigate} from "react-router-dom";
+import { userData } from "./UserData";
+import db from "./Database";
+import { collection, doc, getDoc,updateDoc } from "firebase/firestore";
+import auth from "./Auth";
 
-export default function Profile(props){
 
-    //from updateProfile.js 
+export default function updateProfile (){
     function submitForm(){
 
         let username = document.getElementById("username").value;
@@ -14,16 +15,7 @@ export default function Profile(props){
         let gender = document.getElementById("gender").value;
         let favWorkout = document.getElementById("favWorkout").value;
     }
-
-
     return(<div>
-        <NavigationBar page="Profile"/>
-        <h1>
-            Profile
-        </h1>
-        <ProfileInformation username=""/>
-        <updateProfile username=""/>
-
                 <div className="login-field">
                     <label htmlFor="updateUsername"></label>
                     <input placeholder="Update Username" id="username"></input>
@@ -56,7 +48,5 @@ export default function Profile(props){
                     <input value="UPDATE PROFILE" className="updateProfile-button"  onClick={submitForm}/>
                 </div>
                 
-     
-        
-    </div>);
+        </div>);
 }

@@ -16,6 +16,8 @@ import auth from "./Auth";
 };
 */
 
+
+
 export default function ProfileInformation(props){
     let username="";
     let age="";
@@ -48,6 +50,8 @@ export default function ProfileInformation(props){
     async function updateProfile(props){ //TODO: Implement
         //may need to implement some checks regarding
         //the new input a user types
+
+        await updateDoc()
 
     }
 
