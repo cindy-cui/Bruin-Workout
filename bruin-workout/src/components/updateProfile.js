@@ -61,28 +61,28 @@ export default function UpdateProfile (){
 
 
         const usersRef=collection(db,"users"); //get collection reference from "users"
-       
+       const userRef = doc(); 
         try {
             const userRef= doc(usersRef,""/*should be user's username*/);//get document reference of correct profile.
         }
         catch{
             //could not get document reference of username
         }
-/*
+
         async function changeProperties(userReference){
-            await updateDoc(userRef, {
-                username = usernameN, 
-                age = ageN,
-                height = heightN,
-                ethnicity = ethnicityN,
-                gender = genderN,
-                favWorkout = favWorkoutN 
+            await updateDoc(userReference, {
+                username : usernameN, 
+                age : ageN,
+                height : heightN,
+                ethnicity : ethnicityN,
+                gender : genderN,
+                favWorkout : favWorkoutN 
             }); 
         }
 
        
         changeProperties(userRef); 
-*/
+
     }
 
     return(<div style={{ backgroundImage: `url(${rockHeadshot})`}}>
