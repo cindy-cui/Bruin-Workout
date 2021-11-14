@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import { userData } from "./UserData";
 import {collection,doc,getDoc, updateDoc} from "firebase/firestore";
 import db from "./Database";
+import rockHeadshot from '../assets/rock-headshot.jpeg';
 
 /*  Here is how the object for each user is stored by default
  const userData = {
@@ -84,9 +85,9 @@ export default function UpdateProfile (){
 
     }
 
+    return(<div style={{ backgroundImage: `url(${rockHeadshot})`}}>
 
 
-    return(<div>
                <div className="login-field">
                     <label htmlFor="updateUsername"></label>
                     <input placeholder="Update Username" id="usernameN" defaultValue = {username} ></input>
@@ -113,7 +114,7 @@ export default function UpdateProfile (){
                 </div>
 
                 <div className="login-buttons">
-                    <input value="UPDATE PROFILE" className="updateProfile-button"  onClick={submitForm}/>
+                    <input type="submit" value="UPDATE PROFILE" className="updateProfile-button"  onClick={submitForm}/>
                 </div>
                 
         </div>);
