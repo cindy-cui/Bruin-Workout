@@ -61,14 +61,14 @@ export default function UpdateProfile (){
 
 
         const usersRef=collection(db,"users"); //get collection reference from "users"
-        // const userRef; 
+       
         try {
             const userRef= doc(usersRef,""/*should be user's username*/);//get document reference of correct profile.
         }
         catch{
             //could not get document reference of username
         }
-
+/*
         async function changeProperties(userReference){
             await updateDoc(userRef, {
                 username = usernameN, 
@@ -82,7 +82,7 @@ export default function UpdateProfile (){
 
        
         changeProperties(userRef); 
-
+*/
     }
 
     return(<div style={{ backgroundImage: `url(${rockHeadshot})`}}>
