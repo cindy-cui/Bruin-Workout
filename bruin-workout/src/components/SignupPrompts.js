@@ -1,7 +1,8 @@
 import auth from "./Auth"
-import { createUserWithEmailAndPassword,updateProfile} from "firebase/auth"
+import { createUserWithEmailAndPassword,updateProfile,} from "firebase/auth";
+//import {collection} from "firebase/firestore";
 import { useNavigate } from "react-router";
-import { doc, setDoc } from "firebase/firestore";
+import { collection,doc, setDoc } from "firebase/firestore";
 import db from "./Database";
 import { userData } from "./UserData";
 
@@ -24,9 +25,10 @@ export default function SignupPrompts(){
   async function signedUp(){
     navigate("/home");
   }
-  async function addUser(username){
+  async function addUser(username,userID){
     try{
-    await setDoc(doc(db, "users",username),{
+      const docRef= doc(db,"users",userID);
+      await setDoc(docRef,{
       username:username,
       age:"",
       height:"",
@@ -42,21 +44,23 @@ export default function SignupPrompts(){
         saturday:{name:"", type:""},
         sunday:{name:"", type:""},
       }, 
-    });
+      });
     }
     catch{
       console.log("could not upload information");
     }
-    userData.username=username;
   }
   async function signUp(){
     let email = document.getElementById("email").value;
     let pwd = document.getElementById("password").value;
     let username = document.getElementById("username").value;
     try{
-      await createUserWithEmailAndPassword(auth, email, pwd);
-      await addUser(username);
+      const user= (await createUserWithEmailAndPassword(auth, email, pwd)).user;
+      await updateProfile(user,{displayName:username});
+      const userID=user.uid;
+      await addUser(username,userID);
       console.log("added user");
+      console.log(user);
       signedUp();
     }   
     catch (error){     

@@ -1,7 +1,11 @@
 import {useNavigate} from "react-router-dom";
 import auth from "./Auth";
-import { signInWithEmailAndPassword,signOut,} from "firebase/auth"
+import { signInWithEmailAndPassword,signOut,} from "firebase/auth";
+import {getDoc,doc} from "firebase/firestore";
+import {userData} from "./UserData";
+import db from "./Database";
   //sign in user
+
 
 export default function LoginPrompts(){
 
@@ -18,6 +22,8 @@ export default function LoginPrompts(){
     async function goToHome(){
       navigate("/home");
     }
+
+    
     
     function submitForm(){
         let email = document.getElementById("email").value;
@@ -32,8 +38,6 @@ export default function LoginPrompts(){
         else{signInWithEmailAndPassword(auth, email, pwd)
           .then((userCredential) => {
             // Signed in 
-            const user = userCredential.user;
-            // ...
             goToHome();
           })
           .catch((error) => {
@@ -63,4 +67,3 @@ export default function LoginPrompts(){
                 </div>
         </div>);
 }
-

@@ -1,21 +1,19 @@
 import NavigationBar from '../components/NavigationBar';
 import auth from '../components/Auth';
-import { userData } from '../components/UserData';
+//import {userData} from '../components/UserData';
 
-export default function Home(){    
-    const user= auth.currentUser;
-    let displayName="";
-    if(user!==null){
-        console.log(user.displayName);
-        displayName=user.displayName;
-    }
-    else{
-        displayName="null";
+export default function Home(){   
+    const user=auth.currentUser;
+    console.log(user.uid);
+    function display(){
+        if(user.uid===null)
+            return "";
+        else return user.displayName;
     }
     return(<div>
         <NavigationBar page="Home"/>
         <h1>
-            Welcome, {userData.username}
+            Welcome, {display()}
         </h1>
     </div>);
 }

@@ -10,11 +10,7 @@ import PrivateRoute from './components/PrivateRoute';
 import {signOut} from "firebase/auth";
 import auth from './components/Auth';
 function App() {
-  signOut(auth).then(() => {
-    // Sign-out successful.
-  }).catch((error) => {
-    // An error happened.
-  });
+  
   return (
     <div className="App">
       <Routes>
@@ -22,7 +18,7 @@ function App() {
         <Route path='/home' element={<Home/>} />
         <Route path='/login' element={<Login />}/> 
         <Route path='/signup' element={<Signup />}/>
-        <Route path='/myprofile' element={<Profile /> /*username={user.username}*/}/>
+        <Route path='/myprofile' element={<Profile self="true"/>}/>
         <Route element={<Error />} />
       </Routes>
     </div>

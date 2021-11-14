@@ -1,33 +1,44 @@
-export const userData = {
-    username:"",
-    age:-1,
-    height:-1,
-    ethnicity:"",
-    gender:"",
-    favWorkout:"",
-    workouts:[],
-};
+import {getDoc,doc} from "firebase/firestore";
+import db from "./Database";
 
-/*class User{
-    constructor(){
-        this.username="";
-        this.age = -1;
-        this.height = -1;
-        this.ethnicity = "";
-        this.gender = "";
-        this.favWorkout = "";
+export async function getData(userID,options=""){
+    let userData = {
+        "user":null,
+        "username":"",
+        "age":"",
+        "height":"",
+        "ethnicity":"",
+        "gender":"",
+        "favWorkout":"",
+        "workouts":{
+            "monday":{name:"", type:""},
+            "tuesday":{name:"", type:""},
+            "wednesday":{name:"", type:""},
+            "thursday":{name:"", type:""},
+            "friday":{name:"", type:""},
+            "saturday":{name:"", type:""},
+            "sunday":{name:"", type:""},
+          }, 
+    };    
+    try{
+        const docRef = doc(db, "users", userID);
+        const user = await getDoc(docRef);
+        if(user.exists()){
+            if(options==="username"){
+                return user.get("username");
+            }
+            return{
+            username:user.get("username"),
+            age:user.get("age"),
+            height:user.get("height"),
+            ethnicity:user.get("ethnicity"),
+            gender:user.get("gender"),
+            favWorkout:user.get("age"),
+            workouts:user.get("workouts"),
+            };
+        }
     }
-    setUsername(username){this.username=username;}
-    setName(name){this.name=name;};
-    setAge(age){this.age=age;}
-    setEthnicity(ethnicity){this.ethnicity=ethnicity;}
-    setHeight(height){this.height=height;}
-    setGender(gender){this.gender=gender;}
-    getUsername(){return this.username;}
-    getName(){return this.name;};
-    getAge(){return this.age;}
-    getEthnicity(){return this.ethnicity;}
-    getHeight(){return this.height;}
-    getGender(){return this.gender;}
-}
-export default User;*/
+    catch{
+        return null;
+    }     
+  };
