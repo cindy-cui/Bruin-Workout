@@ -1,10 +1,1 @@
-class User{
-    constructor(){
-        this.name = myName;
-        this.age = age;
-        this.ethnicity = ethnicity;
-        this.height = height;
-        this.gender = gender;
-        this.favWorkout = favWorkout;
-    }
-}
+//this is supposed to represent the workout information when a workout is clicked.
