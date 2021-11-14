@@ -1,4 +1,14 @@
-class User{
+export const userData = {
+    username:"",
+    age:-1,
+    height:-1,
+    ethnicity:"",
+    gender:"",
+    favWorkout:"",
+    workouts:[],
+};
+
+/*class User{
     constructor(){
         this.username="";
         this.age = -1;
@@ -20,4 +30,4 @@ class User{
     getHeight(){return this.height;}
     getGender(){return this.gender;}
 }
-export default User;
+export default User;*/
