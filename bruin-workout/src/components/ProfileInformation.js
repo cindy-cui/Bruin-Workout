@@ -24,38 +24,16 @@ async function get(){
 }
 
 export default function ProfileInformation(){
-    //This can either be the user who clicked "My Profile"
-    // or the results of a profile search
-    async function getUserInfo(){// Async call so getDoc can finish getting its data from server
-        //before rest of program runs
-        const usersRef=collection(db,"users"); //get collection reference from "users"
-        try {
-            const userRef= doc(usersRef,props.username);//get document reference of correct profile.
-            const user = await getDoc(userRef);
-            if(user.exists()){//retrieve data
-                username=user.get("username");
-                age=user.get("age");
-                height=user.get("height");
-                ethnicity=user.get("ethnicity");
-                gender=user.get("gender");
-                favWorkout=user.get("favWorkout");
-            }
-            else{}//could not retrieve document snapshot
-        }
-        catch{
-        //could not get document reference of username
-        }
-    }
-  
+    //This can either be the user who clicked "My Profile" or profile search
 
-    getUserInfo();
+    const data= get();
+    console.log(data);
     return(
         <div>
         <img src={literalRock} alt="" className="literal-rock1"/>
         <img src={literalRock} alt="" className="literal-rock2"/>
         <h2>
-            JLin
-             {/* {username} */}
+            Username: {data.username}
         </h2>
         <h3>
             Age: {data.age}
@@ -76,7 +54,5 @@ export default function ProfileInformation(){
         <h3> 
             Favorite Workout: {data.favWorkout}
         </h3>
-        </div>);*/
-    return(<div>hello</div>);
-    
+        </div>);   
 }
