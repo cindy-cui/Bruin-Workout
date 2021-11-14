@@ -1,7 +1,13 @@
+import NavigationBar from "../components/NavigationBar";
+import SignupPrompts from "../components/SignupPrompts";
+
 export default function Signup(){
     return(<div className="Signup">
+        <NavigationBar page="Signup" />
         <h1>
-            Signup
+            Sign up
         </h1>
-    </div>);
+        <SignupPrompts />
+    </div>
+    );
 }

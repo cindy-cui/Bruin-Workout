@@ -1,11 +1,11 @@
 import React from 'react';
 import { Navigate} from 'react-router-dom';
+import auth from './Auth';
 
-const PrivateRoute = () => {
-    const auth = null; // determine if authorized
 
+function PrivateRoute(props) {
     // If authorized, return an outlet that will render child elements
     // If not, return element that will navigate to login page
-    return auth ? <Navigate to="/home" /> : <Navigate to="/login" />;
+    return props.signedIn ? <Navigate to="/home" /> : <Navigate to="/login" />;
 }
 export default PrivateRoute;

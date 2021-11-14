@@ -4,14 +4,22 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import {Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Error from './pages/Error';
 import PrivateRoute from './components/PrivateRoute';
+import {signOut} from "firebase/auth";
+import auth from './components/Auth';
 function App() {
+  signOut(auth).then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<PrivateRoute />} />
+        <Route path='/home' element={<Home/>} />
         <Route path='/login' element={<Login />}/> 
         <Route path='/signup' element={<Signup />}/>
         <Route path='/myprofile' element={<Profile /> /*username={user.username}*/}/>
