@@ -1,58 +1,65 @@
 import {useNavigate} from "react-router-dom";
 import auth from "./Auth";
-import { signInWithEmailAndPassword} from "firebase/auth"
+import { signInWithEmailAndPassword,signOut,} from "firebase/auth"
   //sign in user
-function signin(email,password){
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    return true;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    return false;
-  });
-}
 
 export default function LoginPrompts(){
-    let navigate=useNavigate();
 
-    async function handleSignin(){
+  signOut(auth).then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
+    let navigate=useNavigate();
+    let errorMessage="";
+    async function goToSignIn(){
     navigate("/signup");
     }
-    async function submitForm(){
+    async function goToHome(){
+      navigate("/home");
+    }
+    
+    function submitForm(){
         let email = document.getElementById("email").value;
+        
         let pwd = document.getElementById("password").value;
+       
         //todo: check input
-        if (email==="" || pwd===""){
-          //todo: error
-          return;
+        if(email==="dev" || pwd==="dev"){
+          console.log("dev login");
+          goToHome();
         }
-        if(/*signin(email,pwd)*/ true){
-            //todo:accept user; move to new page
-            navigate("/home");
-        }
-        else{
-            //todo:error
-            return;
+        else{signInWithEmailAndPassword(auth, email, pwd)
+          .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+            goToHome();
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+          });
         }
     }
     return(<div>
-                <div class="login-field">
-                    <label for="userEmail"></label>
+                <div className="login-field">
+                    <label htmlFor="userEmail"></label>
                     <input placeholder="Email Address" id="email"></input>
                 </div>
-                <div class="login-field">
-                    <label for="userPassword"></label>
+                <div className="login-field">
+                    <label htmlFor="userPassword"></label>
                     <input type="password" placeholder="Password" id="password"></input>
                 </div>
-                <div class="login-buttons">
-                    <input type="submit" value="LOG IN" class="login-button" onClick={submitForm}/>
+                
+                <div className="login-buttons">
+                    <input value="LOG IN" className="login-button"  onClick={submitForm}/>
                     <br/>
-                   <input type="submit" value="SIGN UP" class="login-button" onClick={handleSignin}/>
+                   <input value="SIGN UP" className="login-button" onClick={goToSignIn}/>
+                </div>
+                <div className="error-message">
+                  {errorMessage}
                 </div>
         </div>);
 }
