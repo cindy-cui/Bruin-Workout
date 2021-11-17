@@ -10,7 +10,7 @@ export default function Profile(props){
         <h1>
             Profile
         </h1>
-        <ProfileInformation/>
+        <ProfileInformation id={props.id}/>
         <UpdateProfile/>
                 
         

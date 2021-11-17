@@ -10,7 +10,11 @@ import PrivateRoute from './components/PrivateRoute';
 import {signOut} from "firebase/auth";
 import auth from './components/Auth';
 function App() {
-  
+  const user=auth.currentUser;
+  let id="";
+  if(user!=null){
+    id=user.uid;
+  }
   return (
     <div className="App">
       <Routes>
@@ -18,7 +22,7 @@ function App() {
         <Route path='/home' element={<Home/>} />
         <Route path='/login' element={<Login />}/> 
         <Route path='/signup' element={<Signup />}/>
-        <Route path='/myprofile' element={<Profile self="true"/>}/>
+        <Route path='/myprofile' element={<Profile id={id}/>}/>
         <Route element={<Error />} />
       </Routes>
     </div>
