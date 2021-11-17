@@ -41,9 +41,9 @@ export default function ProfileInformation(props){
         <div>
         <img src={literalRock} alt="" className="literal-rock1"/>
         <img src={literalRock} alt="" className="literal-rock2"/>
-        <h2>
+        <h3>
             Username: {data.username}
-        </h2>
+        </h3>
         <h3>
             Age: {data.age}
         </h3>
