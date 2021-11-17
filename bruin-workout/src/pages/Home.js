@@ -4,11 +4,14 @@ import auth from '../components/Auth';
 
 export default function Home(){   
     const user=auth.currentUser;
-    console.log(user.uid);
     function display(){
         if(user.uid===null)
             return "";
-        else return user.displayName;
+        else{
+            console.log(user.uid);
+            return user.displayName;
+        } 
+        
     }
     return(<div>
         <NavigationBar page="Home"/>

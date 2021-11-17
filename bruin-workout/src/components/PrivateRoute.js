@@ -1,7 +1,5 @@
 import React from 'react';
 import { Navigate} from 'react-router-dom';
-import auth from './Auth';
-
 
 function PrivateRoute(props) {
     // If authorized, return an outlet that will render child elements

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import app from "./FirebaseConfig";
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword ,onAuthStateChanged ,signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 //keep track of state changes
 /*onAuthStateChanged(auth, (user) => {

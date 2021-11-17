@@ -1,9 +1,4 @@
-import { userData } from "./UserData";
-import db from "./Database";
-import { collection, doc, getDoc,updateDoc } from "firebase/firestore";
-import auth from "./Auth";
 import { getData } from "./UserData";
-import rockHeadshot from '../assets/rock-headshot.jpeg'
 import literalRock from '../assets/literal-rock.jpg';
 import {useEffect,useState} from "react";
 import React from "react";
@@ -31,10 +26,15 @@ export default function ProfileInformation(props){
         favWorkout:"",
         workouts:[],
     });
-    useEffect(async () => {
+    //use a state variable to load in the results from getData which is an async function and
+    //therefore should be used in a Effect callback
+    useEffect( () => {
+        async function fetchData(){
         var result=await getData(props.id);    
-        setData(result);       
-     },[]);
+        setData(result);      
+        }
+        fetchData();
+     },[props.id]);
     
     console.log(data);
     return(

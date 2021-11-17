@@ -7,7 +7,6 @@ import Profile from './pages/Profile';
 import { Route, Routes } from 'react-router-dom';
 import Error from './pages/Error';
 import PrivateRoute from './components/PrivateRoute';
-import {signOut} from "firebase/auth";
 import auth from './components/Auth';
 function App() {
   const user=auth.currentUser;

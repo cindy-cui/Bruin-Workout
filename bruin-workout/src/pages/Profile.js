@@ -11,7 +11,7 @@ export default function Profile(props){
             Profile
         </h1>
         <ProfileInformation id={props.id}/>
-        <UpdateProfile/>
+        <UpdateProfile id={props.id}/>
                 
         
     </div>);

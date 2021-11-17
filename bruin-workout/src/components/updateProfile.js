@@ -1,8 +1,8 @@
-import {useNavigate} from "react-router-dom";
-import { userData } from "./UserData";
-import {collection,doc,getDoc, updateDoc} from "firebase/firestore";
+import {doc, updateDoc} from "firebase/firestore";
 import db from "./Database";
 import rockHeadshot from '../assets/rock-headshot.jpeg';
+import auth from "./Auth";
+import {updateProfile} from "firebase/auth";
 
 /*  Here is how the object for each user is stored by default
  const userData = {
@@ -15,74 +15,47 @@ import rockHeadshot from '../assets/rock-headshot.jpeg';
     workouts:[],
 };
 */
-
-export default function UpdateProfile (){
-
+export default function UpdateProfile (props){
+    if(auth.currentUser==null || auth.currentUser.uid!==props.id){//if we cannot access user (because user is not logged in)
+        //or if the profile page being looked at is not the user's, then do not offer a prompt to update profile
+        return(<div>    
+        </div>);
+    }
     let username="";
     let age="";
     let height="";
     let ethnicity="";
     let gender="";
     let favWorkout="";
-    //This can either be the user who clicked "My Profile"
-    // or the results of a profile search
-    async function getUserInfo(){// Async call so getDoc can finish getting its data from server
-        //before rest of program runs
-        const usersRef=collection(db,"users"); //get collection reference from "users"
-        try {
-            const userRef= doc(usersRef,""/*should be user's username*/);//get document reference of correct profile.
-            const user = await getDoc(userRef);
-            if(user.exists()){//retrieve data
-                username=user.get("username");
-                age=user.get("age");
-                height=user.get("height");
-                ethnicity=user.get("ethnicity");
-                gender=user.get("gender");
-                favWorkout=user.get("favWorkout");
-            }
-            else{}//could not retrieve document snapshot
-        }
-        catch{
-        //could not get document reference of username
-        }
-    }
-    getUserInfo();
-
-   
-
-
-    function submitForm(){
+    //This component must be the result of a user looking at their own profile
+    async function submitForm(){
         let usernameN = document.getElementById("usernameN").value;
         let ageN = document.getElementById("ageN").value;
         let heightN = document.getElementById("heightN").value;
         let ethnicityN = document.getElementById("ethnicityN").value;
         let genderN = document.getElementById("genderN").value;
         let favWorkoutN = document.getElementById("favWorkoutN").value;
-
-
-        const usersRef=collection(db,"users"); //get collection reference from "users"
-       const userRef = doc(); 
-        try {
-            const userRef= doc(usersRef,""/*should be user's username*/);//get document reference of correct profile.
+       try{
+           const userReference=doc(db,"users",props.id);
+           await updateDoc(userReference, {
+            username : usernameN, 
+            age : ageN,
+            height : heightN,
+            ethnicity : ethnicityN,
+            gender : genderN,
+            favWorkout : favWorkoutN 
+        });
+        const user=auth.currentUser;
+        if(user!==null){
+            await updateProfile(user,{displayName:usernameN});
+            console.log("updated user successfully");
+        }
+        
         }
         catch{
             //could not get document reference of username
+            console.log("Error reading document");
         }
-
-        async function changeProperties(userReference){
-            await updateDoc(userReference, {
-                username : usernameN, 
-                age : ageN,
-                height : heightN,
-                ethnicity : ethnicityN,
-                gender : genderN,
-                favWorkout : favWorkoutN 
-            }); 
-        }
-
-       
-        changeProperties(userRef); 
-
     }
 
     return(<div style={{ backgroundImage: `url(${rockHeadshot})`}}>

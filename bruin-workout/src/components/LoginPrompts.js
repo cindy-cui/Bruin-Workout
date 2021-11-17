@@ -1,14 +1,8 @@
 import {useNavigate} from "react-router-dom";
 import auth from "./Auth";
 import { signInWithEmailAndPassword,signOut,} from "firebase/auth";
-import {getDoc,doc} from "firebase/firestore";
-import {userData} from "./UserData";
-import db from "./Database";
-  //sign in user
-
 
 export default function LoginPrompts(){
-
   signOut(auth).then(() => {
     // Sign-out successful.
   }).catch((error) => {

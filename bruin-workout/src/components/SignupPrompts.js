@@ -1,10 +1,8 @@
 import auth from "./Auth"
 import { createUserWithEmailAndPassword,updateProfile,} from "firebase/auth";
-//import {collection} from "firebase/firestore";
 import { useNavigate } from "react-router";
-import { collection,doc, setDoc } from "firebase/firestore";
+import {doc, setDoc } from "firebase/firestore";
 import db from "./Database";
-import { userData } from "./UserData";
 
 /*  Here is how the object for each user is stored by default
  const userData = {
