@@ -50,8 +50,9 @@ export default function UpdateProfile(props){
             const user=auth.currentUser;
             if(user!==null){
             try{
-            await updateProfile(user,{displayName:usernameN});
-            console.log("updated user successfully");
+                if(usernameN!=="")
+                    await updateProfile(user,{displayName:usernameN});
+                console.log("updated user successfully");
             //RefreshPage();
             }
             catch{
