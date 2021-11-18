@@ -39,11 +39,11 @@ export default function ProfileInformation(props){//receives props.id from the P
         </h3>
 
         <h3> 
-            Ethnicity: {data.ethnicity}
+            Height: {data.height}
         </h3>
 
         <h3> 
-            Height: {data.height}
+            Ethnicity: {data.ethnicity}
         </h3>
 
         <h3> 

@@ -24,7 +24,6 @@ export default function UpdateProfile(props){
         let genderN = document.getElementById("genderN").value;
         let favWorkoutN = document.getElementById("favWorkoutN").value;
         let newProfile={};
-
         if(usernameN!=="") newProfile.username=usernameN;
         if(ageN!=="") newProfile.age=ageN;
         if(heightN!=="") newProfile.height=heightN;
