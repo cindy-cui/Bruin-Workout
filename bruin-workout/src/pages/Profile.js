@@ -2,16 +2,22 @@ import '../styles/Profile.css';
 import NavigationBar from '../components/NavigationBar';
 import ProfileInformation from '../components/ProfileInformation';
 import UpdateProfile from '../components/updateProfile';
+import auth from '../components/Auth';
 
-export default function Profile(props){
+export default function Profile(){
+    //get the user and their id
+    let user=auth.currentUser;
+    let id="";
+    if(user!=null){
+        id=user.uid;
+    }
     return(<div>
         <NavigationBar page="Profile"/>
-       
         <h1>
             Profile
         </h1>
-        <ProfileInformation id={props.id}/>
-        <UpdateProfile id={props.id}/>
+        <ProfileInformation id={id}/>
+        <UpdateProfile id={id}/>
                 
         
     </div>);

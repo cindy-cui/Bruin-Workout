@@ -4,18 +4,7 @@ import { useNavigate } from "react-router";
 import {doc, setDoc } from "firebase/firestore";
 import db from "./Database";
 
-/*  Here is how the object for each user is stored by default
- const userData = {
-    username:"",
-    age:"",
-    height:"",
-    ethnicity:"",
-    gender:"",
-    favWorkout:"",
-    workouts:[],
-};
-*/
-
+//comments by Daniel Shim
 export default function SignupPrompts(){
   let navigate=useNavigate();
   let errorMessage="";
@@ -24,7 +13,7 @@ export default function SignupPrompts(){
     navigate("/home");
   }
   async function addUser(username,userID){
-    try{
+    try{//add a new user with the following default data. Note username is stored
       const docRef= doc(db,"users",userID);
       await setDoc(docRef,{
       username:username,
@@ -48,22 +37,22 @@ export default function SignupPrompts(){
       console.log("could not upload information");
     }
   }
+  //sign up the user
   async function signUp(){
     let email = document.getElementById("email").value;
     let pwd = document.getElementById("password").value;
     let username = document.getElementById("username").value;
-    try{
+    try{//attempt to create user, then pass username into newly created Profile
       const user= (await createUserWithEmailAndPassword(auth, email, pwd)).user;
       await updateProfile(user,{displayName:username});
       const userID=user.uid;
       await addUser(username,userID);
-      console.log("added user");
-      console.log(user);
-      signedUp();
+      console.log("added user ",user);
+      signedUp(); //send user to Home page
     }   
     catch (error){     
       const errorCode = error.code;
-      errorMessage = error.message;
+      errorMessage = error.message; //TODO: make it so error message prints to user
       console.log(errorCode, errorMessage);
     }
   }

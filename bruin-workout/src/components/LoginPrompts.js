@@ -2,45 +2,37 @@ import {useNavigate} from "react-router-dom";
 import auth from "./Auth";
 import { signInWithEmailAndPassword,signOut,} from "firebase/auth";
 
-export default function LoginPrompts(){
+export default function LoginPrompts(){//comments by Daniel Shim
   signOut(auth).then(() => {
     // Sign-out successful.
   }).catch((error) => {
     // An error happened.
   });
-    let navigate=useNavigate();
-    let errorMessage="";
-    async function goToSignIn(){
-    navigate("/signup");
-    }
-    async function goToHome(){
-      navigate("/home");
-    }
-
+  let navigate=useNavigate();
+  let errorMessage="";
+  async function goToSignIn(){
+  navigate("/signup");
+  }
+  async function goToHome(){
+    navigate("/home");
+  }
+  //have user try to login
+  function submitForm(){
+    let email = document.getElementById("email").value;
     
+    let pwd = document.getElementById("password").value;
+    //attempt to use submitted email and password and sign in
+    signInWithEmailAndPassword(auth, email, pwd)
+      .then((userCredential) => { //sign in successful
+        goToHome(); //send user to home page; auth.currentUser will now hold the user's information, including UID
+      })
+      .catch((error) => { //send error information to console
+        const errorCode = error.code;
+        errorMessage = error.message; //TODO: make it so error message prints to user
+        console.log(errorCode, errorMessage);
+      });
     
-    function submitForm(){
-        let email = document.getElementById("email").value;
-        
-        let pwd = document.getElementById("password").value;
-       
-        //todo: check input
-        if(email==="dev" || pwd==="dev"){
-          console.log("dev login");
-          goToHome();
-        }
-        else{signInWithEmailAndPassword(auth, email, pwd)
-          .then((userCredential) => {
-            // Signed in 
-            goToHome();
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-          });
-        }
-    }
+  }
     return(<div>
                 <div className="login-field">
                     <label htmlFor="userEmail"></label>

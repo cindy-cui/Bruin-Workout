@@ -7,13 +7,8 @@ import Profile from './pages/Profile';
 import { Route, Routes } from 'react-router-dom';
 import Error from './pages/Error';
 import PrivateRoute from './components/PrivateRoute';
-import auth from './components/Auth';
+
 function App() {
-  const user=auth.currentUser;
-  let id="";
-  if(user!=null){
-    id=user.uid;
-  }
   return (
     <div className="App">
       <Routes>
@@ -21,7 +16,7 @@ function App() {
         <Route path='/home' element={<Home/>} />
         <Route path='/login' element={<Login />}/> 
         <Route path='/signup' element={<Signup />}/>
-        <Route path='/myprofile' element={<Profile id={id}/>}/>
+        <Route path='/myprofile' element={<Profile/>}/>
         <Route element={<Error />} />
       </Routes>
     </div>

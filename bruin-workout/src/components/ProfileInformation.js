@@ -3,19 +3,8 @@ import literalRock from '../assets/literal-rock.jpg';
 import {useEffect,useState} from "react";
 import React from "react";
 
-/*  Here is how the object for each user is stored by default
- const userData = {
-    username:"",
-    age:"",
-    height:"",
-    ethnicity:"",
-    gender:"",
-    favWorkout:"",
-    workouts:[],
-};
-*/
-
-export default function ProfileInformation(props){
+//comments by Daniel Shim
+export default function ProfileInformation(props){//receives props.id from the Profile object, where props.id is the User UID
     //This can either be the user who clicked "My Profile" or profile search
     const [data,setData] = useState({
         username:"",
@@ -28,7 +17,8 @@ export default function ProfileInformation(props){
     });
     //use a state variable to load in the results from getData which is an async function and
     //therefore should be used in a Effect callback
-    useEffect( () => {
+    useEffect( () => { //we have to use an Effect call because it is an async that can resolve the Promise
+        //and re-render the React component with the results of getData(props.id)
         async function fetchData(){
         var result=await getData(props.id);    
         setData(result);      

@@ -1,11 +1,10 @@
 import NavigationBar from '../components/NavigationBar';
 import auth from '../components/Auth';
-//import {userData} from '../components/UserData';
 
-export default function Home(){   
-    const user=auth.currentUser;
+export default function Home(props){ //props.id stores the current user's id
     function display(){
-        if(user.uid===null)
+        let user=auth.currentUser;
+        if(user===null)
             return "";
         else{
             console.log(user.uid);
