@@ -8,7 +8,7 @@ export default function Profile(){
     //get the user and their id
     let user=auth.currentUser;
     let id="";
-    if(user!=null){
+    if(user!==null){
         id=user.uid;
     }
     return(<div>
@@ -18,7 +18,5 @@ export default function Profile(){
         </h1>
         <ProfileInformation id={id}/>
         <UpdateProfile id={id}/>
-                
-        
     </div>);
 }
