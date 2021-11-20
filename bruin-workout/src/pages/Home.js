@@ -11,7 +11,7 @@ export default function Home(props){ //props.id stores the current user's id
         if(user===null)
             return "";
         else{
-            console.log(user.uid);
+            console.log("User with username", user.displayName,"and ID ",user.uid," is logged in.");
             return user.displayName;
         }
     }

@@ -32,7 +32,6 @@ export default function ProfileSearch(){
                     </button>
                 </div>);
             });
-            console.log(profiles);
             if(profiles.length===0){
                 setProfileList(<div>No results</div>);
             }

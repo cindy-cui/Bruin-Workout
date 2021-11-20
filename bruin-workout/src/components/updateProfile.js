@@ -50,7 +50,7 @@ export default function UpdateProfile(props){
         }
         catch{
             //could not get document reference of username
-            console.log("Error reading document");
+            console.log("error reading document");
         }
     }
     return(<div style={{ backgroundImage: `url(${rockHeadshot})`}}>
