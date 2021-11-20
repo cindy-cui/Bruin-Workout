@@ -17,3 +17,31 @@ h2 {
     height: 30%;
     right: 5%;
 }
+
+.workout-list {
+    position: absolute;
+    background-color: #C4C4C4;
+    height: 60%;
+    width: 20%;
+    bottom: 5%;
+    left: 10%;
+    border: thin solid black;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.workout-list > ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+}
+
+#workout-unordered-list > li {
+    border-bottom: thin solid black;
+    line-height: 30px;
+}
+
+#workout-list-title {
+    font-weight: bold;
+}
