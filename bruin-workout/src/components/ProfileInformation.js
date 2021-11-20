@@ -2,6 +2,8 @@ import { getData } from "./UserData";
 import literalRock from '../assets/literal-rock.jpg';
 import {useEffect,useState} from "react";
 import React from "react";
+import { useNavigate } from "react-router";
+import auth from "./Auth";
 
 //comments by Daniel Shim
 export default function ProfileInformation(props){//receives props.id from the Profile object, where props.id is the User UID
@@ -25,8 +27,15 @@ export default function ProfileInformation(props){//receives props.id from the P
         }
         fetchData();
      },[props.id]);
-    
-    console.log(data);
+
+    const navigate=useNavigate(); //if user is not logged in, kick the user back to login page
+    useEffect(
+         ()=>{
+             if(auth.currentUser===null){
+                 navigate("/login");
+             }
+         }
+    );
     return(
         <div>
         <img src={literalRock} alt="" className="literal-rock1"/>
