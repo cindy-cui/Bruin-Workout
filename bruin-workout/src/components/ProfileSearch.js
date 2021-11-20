@@ -25,7 +25,7 @@ export default function ProfileSearch(){
                 //for now, we only check for username equality so by definition each username will 
                 //be the same as search_username
                 let other_username=doc.get("username");
-                if(auth.currentUser.displayName!==other_username)
+                if(auth.currentUser.uid!==doc.id)
                 profiles.push(<div>
                     <button onClick={()=>{showProfile(doc.id)}}>
                         {other_username}
