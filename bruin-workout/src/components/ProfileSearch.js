@@ -32,8 +32,14 @@ export default function ProfileSearch(){
                     </button>
                 </div>);
             });
+            console.log(profiles);
+            if(profiles.length===0){
+                setProfileList(<div>No results</div>);
+            }
+            else{
             setProfileList(profiles); //force the DOM to rerender by updating the profile list with
             //the results of our search
+            }
         }
         catch{
             console.log("error");
