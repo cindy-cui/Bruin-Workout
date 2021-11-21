@@ -1,6 +1,7 @@
 import NavigationBar from '../components/NavigationBar';
 import auth from '../components/Auth';
-import Planner from '../components/Planner';
+import List from '../components/List';
+import Information from '../components/Information'
 
 export default function Home(props){ //props.id stores the current user's id
     function display(){
@@ -18,6 +19,7 @@ export default function Home(props){ //props.id stores the current user's id
         <h1>
             Welcome, {display()}
         </h1>
-        <Planner />
+        <List />
+        <Information />
     </div>);
 }
