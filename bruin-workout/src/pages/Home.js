@@ -16,7 +16,10 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import ProfileSearch from '../components/home/ProfileSearch';
 import List from '../components/home/List';
-import Information from '../components/home/Information'
+import Information from '../components/home/Information';
+import Options from '../components/home/Options';
+import Planner from '../components/home/Planner';
+import Filters from '../components/home/Filters';
 
 const useStyles = makeStyles(styles)
 
@@ -34,11 +37,10 @@ function WorkoutListAndFilter() {
         <React.Fragment>
             <Grid item>
                 {/* Filter feature */}
-                <Item><List /></Item>
+                <List />
             </Grid>
             <Grid item>
-                {/* Planner */}
-                <Item>Item</Item>
+                <Filters />
             </Grid>
         </React.Fragment>
     );
@@ -48,14 +50,14 @@ function ScheduleAndSubWindows() {
     return(
         <React.Fragment>
             <Grid item>
-                <Item>Item</Item>                            
+                <Planner />                           
             </Grid>
             <Grid container item direction="row" xs={4} sm={4}  md={4} spacing={10}>
                 <Grid item>
-                    <Item><Information /></Item>
+                    <Information />
                 </Grid>
                 <Grid item>
-                    <Item>Item</Item>                            
+                    <Options />                           
                 </Grid>
             </Grid>
         </React.Fragment>

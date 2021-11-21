@@ -80,7 +80,9 @@ export default function Options(props){//comments by Daniel Shim
             }
         });
     }
-    return(<div>
-        Options
-    </div>);
+    return(
+        <div className="workout-options">
+            Workout Options
+        </div>
+    )
 }
