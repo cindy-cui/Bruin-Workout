@@ -1,7 +1,9 @@
 import { doc,updateDoc} from "firebase/firestore";
-import db from "./Database";
-import { getData } from "./UserData";
+import db from "../Database";
+import { getData } from "../UserData";
 import { useEffect,useState } from "react";
+
+//the component that renders when a user clicks a workout from the list
 
 export default function Options(props){//comments by Daniel Shim
     //declare a state variable called workouts, and fetch the user's workout plan from Firestore

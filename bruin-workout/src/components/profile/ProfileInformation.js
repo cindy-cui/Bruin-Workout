@@ -1,9 +1,9 @@
-import { getData } from "./UserData";
-import literalRock from '../assets/literal-rock.jpg';
+import { getData } from "../UserData";
+import literalRock from '../../assets/literal-rock.jpg';
 import {useEffect,useState} from "react";
 import React from "react";
 import { useNavigate } from "react-router";
-import auth from "./Auth";
+import auth from "../Auth";
 
 //comments by Daniel Shim
 export default function ProfileInformation(props){//receives props.id from the Profile object, where props.id is the User UID

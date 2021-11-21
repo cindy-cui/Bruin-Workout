@@ -1,8 +1,8 @@
-import db from '../components/Database';
+import db from '../Database';
 import {collection, query, where,getDocs} from "firebase/firestore";
 import { useState } from 'react';
-import auth from './Auth';
-import { getData } from './UserData';
+import auth from '../Auth';
+import { getData } from '../UserData';
 
 export default function ProfileSearch(){
     //declare two state variables, one showing the results of a profile search by username called profileList

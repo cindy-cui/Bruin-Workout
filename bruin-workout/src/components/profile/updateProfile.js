@@ -1,7 +1,7 @@
 import {doc, updateDoc} from "firebase/firestore";
-import db from "./Database";
-import rockHeadshot from '../assets/rock-headshot.jpeg';
-import auth from "./Auth";
+import db from "../Database";
+import rockHeadshot from '../../assets/rock-headshot.jpeg';
+import auth from "../Auth";
 import {updateProfile} from "firebase/auth";
 import { useNavigate } from "react-router";
 

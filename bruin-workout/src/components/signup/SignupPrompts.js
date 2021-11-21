@@ -1,8 +1,8 @@
-import auth from "./Auth"
+import auth from "../Auth"
 import { createUserWithEmailAndPassword,updateProfile,} from "firebase/auth";
 import { useNavigate } from "react-router";
 import {doc, setDoc } from "firebase/firestore";
-import db from "./Database";
+import db from "../Database";
 
 //comments by Daniel Shim
 export default function SignupPrompts(){

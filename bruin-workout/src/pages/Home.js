@@ -1,6 +1,6 @@
 import NavigationBar from '../components/NavigationBar';
 import auth from '../components/Auth';
-import ProfileSearch from '../components/ProfileSearch';
+import ProfileSearch from '../components/home/ProfileSearch';
 import {useNavigate} from "react-router-dom";
 import { useEffect } from 'react';
 

@@ -2,7 +2,7 @@ import '../styles/Login.css';
 import rockSerious from '../assets/rock-serious.jpeg';
 import rockSmiling from '../assets/rock-smiling.jpeg';
 import rockFlexing from '../assets/rock-flexing.png';
-import LoginPrompts from '../components/LoginPrompts';
+import LoginPrompts from '../components/login/LoginPrompts';
 
 export default function LoginPages() {
     return (

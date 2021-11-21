@@ -1,7 +1,7 @@
 import '../styles/Profile.css';
 import NavigationBar from '../components/NavigationBar';
-import ProfileInformation from '../components/ProfileInformation';
-import UpdateProfile from '../components/updateProfile';
+import ProfileInformation from '../components/profile/ProfileInformation';
+import UpdateProfile from '../components/profile/updateProfile';
 import auth from '../components/Auth';
 
 export default function Profile(){
