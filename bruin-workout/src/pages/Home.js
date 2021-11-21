@@ -15,6 +15,8 @@ import { styled } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import ProfileSearch from '../components/home/ProfileSearch';
+import List from '../components/home/List';
+import Information from '../components/home/Information'
 
 const useStyles = makeStyles(styles)
 
@@ -32,7 +34,7 @@ function WorkoutListAndFilter() {
         <React.Fragment>
             <Grid item>
                 {/* Filter feature */}
-                <Item>Item</Item>
+                <Item><List /></Item>
             </Grid>
             <Grid item>
                 {/* Planner */}
@@ -50,7 +52,7 @@ function ScheduleAndSubWindows() {
             </Grid>
             <Grid container item direction="row" xs={4} sm={4}  md={4} spacing={10}>
                 <Grid item>
-                    <Item>Item</Item>
+                    <Item><Information /></Item>
                 </Grid>
                 <Grid item>
                     <Item>Item</Item>                            
@@ -59,8 +61,7 @@ function ScheduleAndSubWindows() {
         </React.Fragment>
     );
 }
-import List from '../components/List';
-import Information from '../components/Information'
+
 
 export default function Home(props){ //props.id stores the current user's id
     const classes = useStyles()
