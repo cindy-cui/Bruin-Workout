@@ -1,10 +1,12 @@
 import {doc, updateDoc} from "firebase/firestore";
-import db from "./Database";
-import rockHeadshot from '../assets/rock-headshot.jpeg';
-import auth from "./Auth";
+import db from "../Database";
+import rockHeadshot from '../../assets/rock-headshot.jpeg';
+import auth from "../Auth";
 import {updateProfile} from "firebase/auth";
+import { useNavigate } from "react-router";
 
 export default function UpdateProfile(props){
+    let navigate=useNavigate();
     if(auth.currentUser==null || auth.currentUser.uid!==props.id){//if we cannot access user (because user is not logged in)
         //or if the profile page being looked at is not the user's, then do not offer a prompt to update profile
         return(<div/>);
@@ -39,6 +41,7 @@ export default function UpdateProfile(props){
                 if(usernameN!=="")
                     await updateProfile(user,{displayName:usernameN});
                 console.log("updated user successfully");
+                navigate("/home");
             }
             catch{
                 console.log("error updating profile");
@@ -47,7 +50,7 @@ export default function UpdateProfile(props){
         }
         catch{
             //could not get document reference of username
-            console.log("Error reading document");
+            console.log("error reading document");
         }
     }
     return(<div style={{ backgroundImage: `url(${rockHeadshot})`}}>

@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import auth from "./Auth";
+import auth from "../Auth";
 import { signInWithEmailAndPassword,signOut,} from "firebase/auth";
 
 export default function LoginPrompts(){//comments by Daniel Shim

@@ -1,5 +1,5 @@
 import NavigationBar from "../components/NavigationBar";
-import SignupPrompts from "../components/SignupPrompts";
+import SignupPrompts from "../components/signup/SignupPrompts";
 
 export default function Signup(){
     return(<div className="Signup">

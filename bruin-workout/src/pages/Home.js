@@ -1,6 +1,7 @@
 import NavigationBar from '../components/NavigationBar';
 import { Link } from "react-router-dom";
 import auth from '../components/Auth';
+<<<<<<< HEAD
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import { makeStyles } from '@material-ui/styles';
@@ -56,18 +57,24 @@ function ScheduleAndSubWindows() {
         </React.Fragment>
     );
 }
+=======
+import ProfileSearch from '../components/home/ProfileSearch';
+import {useNavigate} from "react-router-dom";
+import { useEffect } from 'react';
+>>>>>>> 96a64c612a4c45c8a0d0340d77066fe1a0b684fe
 
 export default function Home(props){ //props.id stores the current user's id
+    let navigate=useNavigate();
     function display(){
         let user=auth.currentUser;
         if(user===null)
             return "";
         else{
-            console.log(user.uid);
+            console.log("User with username", user.displayName,"and ID ",user.uid," is logged in.");
             return user.displayName;
-        } 
-        
+        }
     }
+<<<<<<< HEAD
     // return(<div>
     //     <NavigationBar page="Home"/>
     //     {/* <h1>
@@ -108,4 +115,22 @@ export default function Home(props){ //props.id stores the current user's id
             </Box>
         </React.Fragment>
   );
+=======
+    //if user is not logged in, send user back to login page.
+    useEffect(
+        ()=>{
+            if(auth.currentUser===null){
+                navigate("/login");
+            }
+        }
+    );
+
+    return(<div>
+        <NavigationBar page="Home"/>
+        <h1>
+            Welcome, {display()}
+        </h1>
+        <ProfileSearch />
+    </div>);
+>>>>>>> 96a64c612a4c45c8a0d0340d77066fe1a0b684fe
 }
