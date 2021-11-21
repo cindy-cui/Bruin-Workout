@@ -59,6 +59,8 @@ function ScheduleAndSubWindows() {
         </React.Fragment>
     );
 }
+import List from '../components/List';
+import Information from '../components/Information'
 
 export default function Home(props){ //props.id stores the current user's id
     const classes = useStyles()
