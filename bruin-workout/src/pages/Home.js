@@ -1,7 +1,6 @@
 import NavigationBar from '../components/NavigationBar';
 import { Link } from "react-router-dom";
 import auth from '../components/Auth';
-<<<<<<< HEAD
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import { makeStyles } from '@material-ui/styles';
@@ -13,6 +12,9 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import styles from '../styles/styles'
 import { styled } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import ProfileSearch from '../components/home/ProfileSearch';
 
 const useStyles = makeStyles(styles)
 
@@ -57,14 +59,20 @@ function ScheduleAndSubWindows() {
         </React.Fragment>
     );
 }
-=======
-import ProfileSearch from '../components/home/ProfileSearch';
-import {useNavigate} from "react-router-dom";
-import { useEffect } from 'react';
->>>>>>> 96a64c612a4c45c8a0d0340d77066fe1a0b684fe
 
 export default function Home(props){ //props.id stores the current user's id
+    const classes = useStyles()
+    
     let navigate=useNavigate();
+    //if user is not logged in, send user back to login page.
+    useEffect(
+        ()=>{
+            if(auth.currentUser===null){
+                navigate("/login");
+            }
+        }
+    )
+
     function display(){
         let user=auth.currentUser;
         if(user===null)
@@ -73,15 +81,8 @@ export default function Home(props){ //props.id stores the current user's id
             console.log("User with username", user.displayName,"and ID ",user.uid," is logged in.");
             return user.displayName;
         }
-    }
-<<<<<<< HEAD
-    // return(<div>
-    //     <NavigationBar page="Home"/>
-    //     {/* <h1>
-    //         Welcome, {display()}
-    //     </h1> */}
-    // </div>);
-    const classes = useStyles()
+    }    
+
     return (
         <React.Fragment>
             <AppBar
@@ -113,24 +114,7 @@ export default function Home(props){ //props.id stores the current user's id
                     </Grid>
                 </Grid>
             </Box>
+            <ProfileSearch />
         </React.Fragment>
   );
-=======
-    //if user is not logged in, send user back to login page.
-    useEffect(
-        ()=>{
-            if(auth.currentUser===null){
-                navigate("/login");
-            }
-        }
-    );
-
-    return(<div>
-        <NavigationBar page="Home"/>
-        <h1>
-            Welcome, {display()}
-        </h1>
-        <ProfileSearch />
-    </div>);
->>>>>>> 96a64c612a4c45c8a0d0340d77066fe1a0b684fe
 }
