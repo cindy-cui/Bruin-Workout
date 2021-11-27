@@ -61,3 +61,10 @@ for(let i = 0; i < Workouts.size(); i++){
         document.write(curWorkout);//let curWorkout pop up as a suggestion
     }
 }
+var a = document.createElement('a');
+a.setAttribute('href',desiredLink);
+a.innerHTML = desiredText;
+// apend the anchor to the body
+// of course you can append it almost to any other dom element
+document.getElementsByTagName('body')[0].appendChild(a);
+//TODO: set hyperlinks for all the workouts
