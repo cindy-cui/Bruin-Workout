@@ -43,13 +43,21 @@ let gobletSquat = new Workout("GobletSquat", "legs");
 let running = new Workout("Running", "cardio");
 let basketball = new Workout("Basketball", "cardio");
 
-const Workouts = [benchPress, chestFly, dips, tricepExtension, skullCrusher, tricepDips, 
+export const Workouts = [benchPress, chestFly, dips, tricepExtension, skullCrusher, tricepDips, 
 tricepPullDown, rows, latPulldowns, bentOverRow, pullUps, twentyOnes, hammerCurls, inclineDumbbellCurl, shrugs, shoulderPress,
 squat, deadlift, splitSquat, legCurlMachine, legPressMachine, gobletSquat, running, basketball];
 
 let curWorkout = bentOverRow; //modify this to be whatever workout is currently selected
+<script type="text/javascript"> 
+document.onclick=check; 
+function check(e){ 
+var target = (e && e.target) || (event && event.srcElement); 
+var obj = document.getElementById('div-id'); 
+if(target!=obj){obj.style.display='none'} 
+
+</script>
 for(let i = 0; i < Workouts.size(); i++){
     if(curWorkout.type() == Workouts[i].type()){
-        //let curWorkout pop up as a suggestion
+        document.write(curWorkout);//let curWorkout pop up as a suggestion
     }
 }
