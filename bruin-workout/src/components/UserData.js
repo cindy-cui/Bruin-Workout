@@ -23,7 +23,6 @@ export async function getData(userID,options=""){
             ethnicity:user.get("ethnicity"),
             gender:user.get("gender"),
             favWorkout:user.get("favWorkout"),
-            workouts:user.get("workouts"),
             };
         }
     }
