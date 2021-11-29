@@ -99,3 +99,11 @@ h2 {
     bottom: 78%;
     left: 70%;
 }
+
+.planner-item {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 45vh;
+    width: 7vw;
+}
