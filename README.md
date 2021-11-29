@@ -1,8 +1,5 @@
 # Bruin-Workout
 
-## Description
-
-
 
 ## Usage 
 
@@ -26,11 +23,11 @@ npm install -g npm
 ```
 Next, install the following using npm, 
 - react router dom 
-  command: ``` $ npm install react-router-dom@6 ```
+  - command: ``` $ npm install react-router-dom@6 ```
 - Firebase app module 
-  command: ``` $ npm install --save @react-native-firebase/app ```
+  - command: ``` $ npm install --save @react-native-firebase/app ```
 - MUI (react component library) 
-  command: ```npm install @mui/material```
+  - command: ```npm install @mui/material```
 
 
 
@@ -40,3 +37,6 @@ npm start
 ```
 
 You can access the web app through http://localhost:3000 
+
+
+## Description
