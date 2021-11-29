@@ -43,7 +43,7 @@ function WorkoutListAndFilter() {
                 <List/>
             </Grid>
             <Grid item>
-                <Filters />
+                {/*<Filters />*/}
             </Grid>
         </React.Fragment>
     );

@@ -25,7 +25,7 @@ export default function PlannerItem({ info }) {
                 /> */}
                 <CardContent>
                     <Typography>
-                        { info.workout.name }
+                        { info.workout }
                     </Typography>
                 </CardContent>
             </Card>

@@ -8,11 +8,13 @@ import { useRef } from "react";
 
 
 export default function Planner(props) {
+    const workouts =props.workouts;
+    let monday= plannerInfo("monday", workouts.monday.theName);
+
     return (
-        <Grid container direction="row">
-            <Grid item>
-             </Grid>
-        </Grid>
+        <div>
+         <PlannerItem info={monday}/>
+        </div>
         // <div className="workout-planner">
         //     Planner
         // </div>
