@@ -49,8 +49,13 @@ function WorkoutListAndFilter() {
 function ScheduleAndSubWindows() {
     return(
         <React.Fragment>
-            <Grid item>
-                <Planner />                           
+            <Grid container item direction="column">
+                <Grid item>
+                    <ProfileSearch/>
+                </Grid>          
+                <Grid item>
+                    <Planner /> 
+                </Grid>                
             </Grid>
             <Grid container item direction="row" xs={4} sm={4}  md={4} spacing={10}>
                 <Grid item>
@@ -119,7 +124,6 @@ export default function Home(props){ //props.id stores the current user's id
                     </Grid>
                 </Grid>
             </Box>
-            <ProfileSearch />
         </React.Fragment>
   );
 }

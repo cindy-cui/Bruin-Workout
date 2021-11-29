@@ -60,7 +60,7 @@ export default function ProfileSearch(){
         </div>);//the Close button clears searchResults by setting it to an empty div
     }
     
-    return(<div>
+    return(<div id="profile-search-container">
         <input placeholder="Search for profile" id="search_username"/>
         <button onClick={()=>searchUsername()}>Search</button> 
         <br/>
