@@ -2,11 +2,15 @@ import { doc,updateDoc} from "firebase/firestore";
 import db from "../Database";
 import { getData } from "../UserData";
 import { useEffect,useState } from "react";
-
+import Planner from "./Planner";
+import Grid from '@mui/material/Grid';
+import React from "react";
+import ProfileSearch from "./ProfileSearch";
 //the component that renders when a user clicks a workout from the list
 
 export default function Options(props){//comments by Daniel Shim
     //declare a state variable called workouts, and fetch the user's workout plan from Firestore
+    const[chosenWorkout,setChosenWorkout]=useState(props.workout);
     const [workouts,setWorkouts] = useState({
             monday:{name:"", type:""},
             tuesday:{name:"", type:""},
@@ -22,7 +26,8 @@ export default function Options(props){//comments by Daniel Shim
         setWorkouts(result);      
         }
         fetchData();
-     },[props.id]);
+        setChosenWorkout(props.workout);
+     },[props.id,props.workout]);
     //the state variable workouts should now be filled in with data from Firestore
     // use dot notation to retrieve the string of the information you need. For example,
     // workouts.monday.name should return a string representing the name of Monday's workout
@@ -80,9 +85,25 @@ export default function Options(props){//comments by Daniel Shim
             }
         });
     }
+    let workout="";
+    if(props.workout!==null){
+        workout=props.workout.theName;
+    }
     return(
-        <div className="workout-options">
+        <div>
+            <div className="workout-options">
             Workout Options
+            <br/>
+            {workout}
+            </div>
+            <React.Fragment>
+            <Grid container item direction="column">    
+                <Grid item>
+                     <Planner workouts={workouts}/>
+                </Grid>                
+            </Grid>
+            </React.Fragment>
         </div>
+        
     )
 }

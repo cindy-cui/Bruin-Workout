@@ -14,7 +14,7 @@ import Paper from '@mui/material/Paper';
 import styles from '../styles/styles'
 import { styled } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect,useState} from 'react';
 import ProfileSearch from '../components/home/ProfileSearch';
 import List from '../components/home/List';
 import Information from '../components/home/Information';
@@ -33,12 +33,14 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
+
+
 function WorkoutListAndFilter() {
     return(
         <React.Fragment>
             <Grid item>
                 {/* Filter feature */}
-                <List />
+                <List/>
             </Grid>
             <Grid item>
                 <Filters />
@@ -55,15 +57,15 @@ function ScheduleAndSubWindows() {
                     <ProfileSearch/>
                 </Grid>          
                 <Grid item>
-                    <Planner /> 
+                     
                 </Grid>                
             </Grid>
             <Grid container item direction="row" xs={4} sm={4}  md={4} spacing={10}>
                 <Grid item>
-                    <Information />
+                    
                 </Grid>
                 <Grid item>
-                    <Options />                           
+                                              
                 </Grid>
             </Grid>
         </React.Fragment>
@@ -71,9 +73,8 @@ function ScheduleAndSubWindows() {
 }
 
 
-export default function Home(props){ //props.id stores the current user's id
+export default function Home(){ //props.id stores the current user's id
     const classes = useStyles()
-    
     let navigate=useNavigate();
     //if user is not logged in, send user back to login page.
     useEffect(
@@ -122,7 +123,7 @@ export default function Home(props){ //props.id stores the current user's id
             <Box t={10} l={10} className={classes.container}>
                 <Grid container columnSpacing={10} columns={11}>
                     <Grid container item direction="column" xs={4} sm={4} md={4} lg={4} rowSpacing={3}>
-                        <WorkoutListAndFilter />
+                        <WorkoutListAndFilter/>
                     </Grid>
                     <Grid container item direction="column" xs={7} sm={7} md={7} rowSpacing={3}>
                         <ScheduleAndSubWindows/>

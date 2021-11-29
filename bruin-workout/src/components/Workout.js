@@ -6,7 +6,7 @@ class Workout{
     get theName(){
         return this.name;
     }
-    get getType(){
+    get theType(){
         return this.type;
     }
 }
@@ -46,7 +46,7 @@ let basketball = new Workout("Basketball", "cardio");
 export const Workouts = [benchPress, chestFly, dips, tricepExtension, skullCrusher, tricepDips, 
 tricepPullDown, rows, latPulldowns, bentOverRow, pullUps, twentyOnes, hammerCurls, inclineDumbbellCurl, shrugs, shoulderPress,
 squat, deadlift, splitSquat, legCurlMachine, legPressMachine, gobletSquat, running, basketball];
-
+/*
 let curWorkout = bentOverRow; //modify this to be whatever workout is currently selected
 <script type="text/javascript"> 
 document.onclick=check; 
@@ -88,3 +88,4 @@ document.getElementsByTagName('body')[0].appendChild(a);
     </script>
   </body>
 </html>
+*/
