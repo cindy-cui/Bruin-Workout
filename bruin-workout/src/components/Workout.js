@@ -68,3 +68,23 @@ a.innerHTML = desiredText;
 // of course you can append it almost to any other dom element
 document.getElementsByTagName('body')[0].appendChild(a);
 //TODO: set hyperlinks for all the workouts
+ <html>
+  <head></head>
+  <body>
+    <script>
+      var a = document.createElement('a');
+      var linkText = document.createTextNode("Bench Press Youtube Video");
+      a.appendChild(linkText);
+      a.title = "my title text";
+      a.href = "https://www.youtube.com/watch?v=SCVCLChPQFY&ab_channel=CrossFit%C2%AE";
+      document.body.appendChild(a);
+    
+      var b = document.createElement('b');
+      var linkText = document.createTextNode("Chest Fly Youtube Video");
+      b.appendChild(linkText);
+      b.title = "my title text";
+      b.href = "https://www.youtube.com/watch?v=Z57CtFmRMxA&ab_channel=LIVESTRONG.COM";
+      document.body.appendChild(b);
+    </script>
+  </body>
+</html>
