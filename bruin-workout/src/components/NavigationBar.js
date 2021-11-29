@@ -11,13 +11,10 @@ import {signOut} from "firebase/auth";
 //has a <NavigationBar page="Profile"/> within it.
 // -Daniel Shim
 function NavigationBar(props){
-        async function logout(){
-                await signOut(auth);
-        }
         if(props.page==="Home"){
                 return(<div className="navigation">
                 <ul>
-                        <li><Link to="/" onClick={logout}>Log out </Link></li>
+                        <li><Link to="/">Log out </Link></li>
                         <li><Link to="/myprofile">My Profile </Link></li>
                 </ul>
                 </div>);

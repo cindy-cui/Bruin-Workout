@@ -1,4 +1,5 @@
 import NavigationBar from '../components/NavigationBar';
+import { signOut } from '@firebase/auth';
 import { Link } from "react-router-dom";
 import auth from '../components/Auth';
 import * as React from 'react';
@@ -93,6 +94,9 @@ export default function Home(props){ //props.id stores the current user's id
         }
     }    
 
+    async function logout(){
+        await signOut(auth);
+    }
     return (
         <React.Fragment>
             <AppBar
@@ -105,6 +109,7 @@ export default function Home(props){ //props.id stores the current user's id
                     <nav>
                         <Link to="/myprofile">
                             <Button variant="text" color="inherit">Profile</Button>
+                            <Button variant="text" color="inherit" onClick={logout}>Log out</Button>
                         </Link>
                     </nav>
                 </Toolbar>
