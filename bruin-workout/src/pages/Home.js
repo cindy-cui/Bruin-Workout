@@ -43,6 +43,7 @@ function WorkoutListAndFilter(props) {
                 <List handleClick={ props.handleClick }/>
             </Grid>
             <Grid item>
+                <Filters />
                 {/*<Filters />*/}
             </Grid>
         </React.Fragment>
