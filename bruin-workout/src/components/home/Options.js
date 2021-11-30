@@ -12,26 +12,7 @@ import { useNavigate } from "react-router";
 //the component that renders when a user clicks a workout from the list
 
 export default function Options(props){//comments by Daniel Shim
-    let navigate=useNavigate();
-    let result="";
-    
-
-    useEffect( () => {
-        async function fetchData(){
-        if(auth.currentUser!==null){
-        result=await getData(auth.currentUser.uid,"workouts");    
-        props.setWorkoutSchedule(result); 
-        }
-        }
-        fetchData();
-     },[props.workout]);
-     useEffect(
-        ()=>{
-            if(auth.currentUser===null){
-                navigate("/login");
-            }
-        }
-   );
+    let navigate=useNavigate();    
     //the state variable workouts should now be filled in with data from Firestore
     // use dot notation to retrieve the string of the information you need. For example,
     // workouts.monday.name should return a string representing the name of Monday's workout
@@ -89,13 +70,16 @@ export default function Options(props){//comments by Daniel Shim
         if (workout!==null){ 
             addedName=workout.theName;
             addedType=workout.theType;
-        }   
-        props.setWorkoutSchedule({
-            [day]:{
-                name:addedName,type: addedType,
-            }
-        });
+        }
+        let newSchedule = props.workoutSchedule
+        // console.log(newSchedule)
+        console.log(day)
+        newSchedule[day].name = addedName
+        newSchedule[day].type = addedType
+        // console.log(newSchedule)
+        props.setWorkoutSchedule(newSchedule);
     }
+
     let workout="";
     if(props.workout!==null){
         workout=props.workout.theName;
@@ -107,8 +91,7 @@ export default function Options(props){//comments by Daniel Shim
             <br/>
             {workout}
             </div>
-            <Planner workouts={props.workoutSchedule}/>
-        <button onClick={()=>{addWorkout(Workouts[18],"tuesday")}
+        <button onClick={()=>{addWorkout(Workouts[5],"tuesday")}
         }> Add workout to tuesday</button>
         </div>
         

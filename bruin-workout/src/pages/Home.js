@@ -22,6 +22,7 @@ import Options from '../components/home/Options';
 import Planner from '../components/home/Planner';
 import Filters from '../components/home/Filters';
 import { Workouts } from '../components/Workout';
+import { getData } from "../components/UserData";
 
 const useStyles = makeStyles(styles)
 
@@ -64,8 +65,8 @@ function ScheduleAndSubWindows(props) {
                     <Information workout={props.workout}/>
                 </Grid>
                 <Grid item>
-                    {/* <Options workout={props.workout} setWorkoutSchedule={props.setWorkoutSchedule} */}
-                        {/* workoutSchedule={props.workoutSchedule}/>                     */}
+                    <Options workout={props.workout} setWorkoutSchedule={props.setWorkoutSchedule}
+                        workoutSchedule={props.workoutSchedule}/>                    
                 </Grid>
             </Grid>
         </React.Fragment>
@@ -75,6 +76,13 @@ function ScheduleAndSubWindows(props) {
 
 export default function Home(){ //props.id stores the current user's id
     const classes = useStyles()
+    
+    const [chosenWorkout, setChosenWorkout]=useState(null);
+    async function handleClick(index){
+        console.log(Workouts[index].theName);
+        setChosenWorkout(Workouts[index]);
+    }
+
     let navigate=useNavigate();
     //if user is not logged in, send user back to login page.
     useEffect(
@@ -98,10 +106,12 @@ export default function Home(){ //props.id stores the current user's id
     async function logout(){
         await signOut(auth);
     }
+
+    let result="";
     //declare a state variable called workouts, and fetch the user's workout plan from Firestore
     const [workoutSchedule, setWorkoutSchedule] = useState({
-        monday:{name:"", type:""},
-        tuesday:{name:"", type:""},
+        monday:{name:"phat squats", type:""},
+        tuesday:{name:"thicc bench press", type:""},
         wednesday:{name:"", type:""},
         thursday:{name:"", type:""},
         friday:{name:"", type:""},
@@ -109,11 +119,23 @@ export default function Home(){ //props.id stores the current user's id
         sunday:{name:"", type:""},
     });
 
-    const [chosenWorkout, setChosenWorkout]=useState(null);
-    async function handleClick(index){
-        console.log(Workouts[index].theName);
-        setChosenWorkout(Workouts[index]);
-    }
+    useEffect( () => {
+        async function fetchData(){
+        if(auth.currentUser!==null){
+        result=await getData(auth.currentUser.uid,"workouts");    
+            setWorkoutSchedule(result); 
+        }
+        }
+        fetchData();
+     },[chosenWorkout]);
+     useEffect(
+        ()=>{
+            if(auth.currentUser===null){
+                navigate("/login");
+            }
+        }
+   );
+
     return (
         <React.Fragment>
             <AppBar
