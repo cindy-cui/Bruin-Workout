@@ -14,22 +14,13 @@ import { useNavigate } from "react-router";
 export default function Options(props){//comments by Daniel Shim
     let navigate=useNavigate();
     let result="";
-    //declare a state variable called workouts, and fetch the user's workout plan from Firestore
-    const [workouts,setWorkouts] = useState({
-            monday:{name:"", type:""},
-            tuesday:{name:"", type:""},
-            wednesday:{name:"", type:""},
-            thursday:{name:"", type:""},
-            friday:{name:"", type:""},
-            saturday:{name:"", type:""},
-            sunday:{name:"", type:""},
-    });
+    
 
     useEffect( () => {
         async function fetchData(){
         if(auth.currentUser!==null){
         result=await getData(auth.currentUser.uid,"workouts");    
-        setWorkouts(result); 
+        props.setWorkoutSchedule(result); 
         }
         }
         fetchData();
@@ -73,7 +64,7 @@ export default function Options(props){//comments by Daniel Shim
             //React knows to re-render the React component (because of the setState call used in updateWorkouts)
             navigate("/myprofile");
             navigate("/home");
-            console.log(workouts);
+            console.log(props.workoutSchedule);
         }
         else
             console.log("error");
@@ -99,7 +90,7 @@ export default function Options(props){//comments by Daniel Shim
             addedName=workout.theName;
             addedType=workout.theType;
         }   
-        setWorkouts({
+        props.setWorkoutSchedule({
             [day]:{
                 name:addedName,type: addedType,
             }
@@ -116,7 +107,7 @@ export default function Options(props){//comments by Daniel Shim
             <br/>
             {workout}
             </div>
-            <Planner workouts={workouts}/>
+            <Planner workouts={props.workoutSchedule}/>
         <button onClick={()=>{addWorkout(Workouts[18],"tuesday")}
         }> Add workout to tuesday</button>
         </div>

@@ -21,6 +21,7 @@ import Information from '../components/home/Information';
 import Options from '../components/home/Options';
 import Planner from '../components/home/Planner';
 import Filters from '../components/home/Filters';
+import { Workouts } from '../components/Workout';
 
 const useStyles = makeStyles(styles)
 
@@ -31,16 +32,14 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  }));
+}));
 
-
-
-function WorkoutListAndFilter() {
+function WorkoutListAndFilter(props) {
     return(
         <React.Fragment>
             <Grid item>
                 {/* Filter feature */}
-                <List/>
+                <List handleClick={ props.handleClick }/>
             </Grid>
             <Grid item>
                 {/*<Filters />*/}
@@ -49,7 +48,7 @@ function WorkoutListAndFilter() {
     );
 }
 
-function ScheduleAndSubWindows() {
+function ScheduleAndSubWindows(props) {
     return(
         <React.Fragment>
             <Grid container item direction="column">
@@ -57,15 +56,16 @@ function ScheduleAndSubWindows() {
                     <ProfileSearch/>
                 </Grid>          
                 <Grid item>
-                     
+                    <Planner workoutSchedule={props.workoutSchedule}/>
                 </Grid>                
             </Grid>
             <Grid container item direction="row" xs={4} sm={4}  md={4} spacing={10}>
                 <Grid item>
-                    
+                    <Information workout={props.workout}/>
                 </Grid>
                 <Grid item>
-                                              
+                    {/* <Options workout={props.workout} setWorkoutSchedule={props.setWorkoutSchedule} */}
+                        {/* workoutSchedule={props.workoutSchedule}/>                     */}
                 </Grid>
             </Grid>
         </React.Fragment>
@@ -98,6 +98,22 @@ export default function Home(){ //props.id stores the current user's id
     async function logout(){
         await signOut(auth);
     }
+    //declare a state variable called workouts, and fetch the user's workout plan from Firestore
+    const [workoutSchedule, setWorkoutSchedule] = useState({
+        monday:{name:"", type:""},
+        tuesday:{name:"", type:""},
+        wednesday:{name:"", type:""},
+        thursday:{name:"", type:""},
+        friday:{name:"", type:""},
+        saturday:{name:"", type:""},
+        sunday:{name:"", type:""},
+    });
+
+    const [chosenWorkout, setChosenWorkout]=useState(null);
+    async function handleClick(index){
+        console.log(Workouts[index].theName);
+        setChosenWorkout(Workouts[index]);
+    }
     return (
         <React.Fragment>
             <AppBar
@@ -123,13 +139,14 @@ export default function Home(){ //props.id stores the current user's id
             <Box t={10} l={10} className={classes.container}>
                 <Grid container columnSpacing={10} columns={11}>
                     <Grid container item direction="column" xs={4} sm={4} md={4} lg={4} rowSpacing={3}>
-                        <WorkoutListAndFilter/>
+                        <WorkoutListAndFilter handleClick={handleClick}/>
                     </Grid>
                     <Grid container item direction="column" xs={7} sm={7} md={7} rowSpacing={3}>
-                        <ScheduleAndSubWindows/>
+                        <ScheduleAndSubWindows workout={ chosenWorkout }
+                            setWorkoutSchedule={setWorkoutSchedule} workoutSchedule={workoutSchedule}/>
                     </Grid>
                 </Grid>
             </Box>
         </React.Fragment>
-  );
+    );
 }

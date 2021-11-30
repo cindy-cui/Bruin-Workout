@@ -23,6 +23,8 @@ h2 {
     background-color: #C4C4C4;
     height: 60%;
     width: 20%;
+    /* height: 40vh; */
+    /* width: 20vw; */
     bottom: 5%;
     left: 10%;
     border: thin solid black;
