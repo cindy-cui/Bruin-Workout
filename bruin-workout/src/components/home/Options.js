@@ -33,6 +33,8 @@ export default function Options(props){//comments by Daniel Shim
     
 
     async function addWorkout(workout,day){//workout is Workout class type (from Workout.js), day is string representing day of the week
+        if (workout == null)
+            return;
         const userRef= getDocument();  //userRef is a Document Reference for the user's information
         const workout_name = "workouts."+ day + ".name";   //so for instance the string might be "workout.monday.name"
         const workout_type= "workouts."+ day + ".type";
@@ -85,14 +87,19 @@ export default function Options(props){//comments by Daniel Shim
         workout=props.workout.theName;
     }
     return(
-        <div>
-            <div className="workout-options">
+        <div className="workout-options">
+            <div>
             Workout Options
             <br/>
             {workout}
             </div>
-        <button onClick={()=>{addWorkout(Workouts[5],"tuesday")}
-        }> Add workout to tuesday</button>
+            <button onClick={()=>{addWorkout(Workouts[props.index],"monday")}}> Add workout to monday</button>
+            <button onClick={()=>{addWorkout(Workouts[props.index],"tuesday")}}> Add workout to tuesday</button>
+            <button onClick={()=>{addWorkout(Workouts[props.index],"wednesday")}}> Add workout to wednesday</button>
+            <button onClick={()=>{addWorkout(Workouts[props.index],"thursday")}}> Add workout to thursday</button>
+            <button onClick={()=>{addWorkout(Workouts[props.index],"friday")}}> Add workout to friday</button>
+            <button onClick={()=>{addWorkout(Workouts[props.index],"saturday")}}> Add workout to saturday</button>
+            <button onClick={()=>{addWorkout(Workouts[props.index],"sunday")}}> Add workout to sunday</button>
         </div>
         
     )
