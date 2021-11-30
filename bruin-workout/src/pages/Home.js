@@ -54,7 +54,7 @@ function ScheduleAndSubWindows(props) {
         <React.Fragment>
             <Grid container item direction="column">
                 <Grid item>
-                    <ProfileSearch/>
+                    <ProfileSearch/> 
                 </Grid>          
                 <Grid item>
                     <Planner workoutSchedule={props.workoutSchedule}/>
@@ -65,8 +65,8 @@ function ScheduleAndSubWindows(props) {
                     <Information workout={props.workout}/>
                 </Grid>
                 <Grid item>
-                    <Options workout={props.workout} setWorkoutSchedule={props.setWorkoutSchedule}
-                        workoutSchedule={props.workoutSchedule}/>                    
+                <Options index={ props.index } workout={props.workout} setWorkoutSchedule={props.setWorkoutSchedule}
+                        workoutSchedule={props.workoutSchedule}/>          
                 </Grid>
             </Grid>
         </React.Fragment>
@@ -77,9 +77,11 @@ function ScheduleAndSubWindows(props) {
 export default function Home(){ //props.id stores the current user's id
     const classes = useStyles()
     
+    const [index, setWorkoutsIndex]=useState(null);
     const [chosenWorkout, setChosenWorkout]=useState(null);
     async function handleClick(index){
         console.log(Workouts[index].theName);
+        setWorkoutsIndex(index);
         setChosenWorkout(Workouts[index]);
     }
 
@@ -110,8 +112,8 @@ export default function Home(){ //props.id stores the current user's id
     let result="";
     //declare a state variable called workouts, and fetch the user's workout plan from Firestore
     const [workoutSchedule, setWorkoutSchedule] = useState({
-        monday:{name:"phat squats", type:""},
-        tuesday:{name:"thicc bench press", type:""},
+        monday:{name:"", type:""},
+        tuesday:{name:"", type:""},
         wednesday:{name:"", type:""},
         thursday:{name:"", type:""},
         friday:{name:"", type:""},
@@ -164,7 +166,7 @@ export default function Home(){ //props.id stores the current user's id
                         <WorkoutListAndFilter handleClick={handleClick}/>
                     </Grid>
                     <Grid container item direction="column" xs={7} sm={7} md={7} rowSpacing={3}>
-                        <ScheduleAndSubWindows workout={ chosenWorkout }
+                        <ScheduleAndSubWindows workout={ chosenWorkout } index={ index }
                             setWorkoutSchedule={setWorkoutSchedule} workoutSchedule={workoutSchedule}/>
                     </Grid>
                 </Grid>
