@@ -80,11 +80,53 @@ document.getElementsByTagName('body')[0].appendChild(a);
       document.body.appendChild(a);
     
       var b = document.createElement('b');
-      var linkText = document.createTextNode("Chest Fly Youtube Video");
-      b.appendChild(linkText);
+      var linkText2 = document.createTextNode("Chest Fly Youtube Video");
+      b.appendChild(linkText2);
       b.title = "my title text";
       b.href = "https://www.youtube.com/watch?v=Z57CtFmRMxA&ab_channel=LIVESTRONG.COM";
       document.body.appendChild(b);
+      
+      var c = document.createElement('c');
+      var linkText3 = document.createTextNode("Dips Youtube Video");
+      c.appendChild(linkText3);
+      c.title = "my title text";
+      c.href = "https://www.youtube.com/watch?v=yN6Q1UI_xkE&ab_channel=JeffNippard";
+      document.body.appendChild(c);
+      
+      var d = document.createElement('d');
+      var linkText4 = document.createTextNode("Dips Youtube Video");
+      d.appendChild(linkText4);
+      d.title = "my title text";
+      d.href = "https://www.youtube.com/watch?v=X-iV-cG8cYs&ab_channel=ColossusFitness";
+      document.body.appendChild(d);
+      
+      var e = document.createElement('e');
+      var linkText5 = document.createTextNode("Skullcrusher Youtube Video");
+      e.appendChild(linkText5);
+      e.title = "my title text";
+      e.href = "https://www.youtube.com/watch?v=d_KZxkY_0cM&ab_channel=ScottHermanFitness";
+      document.body.appendChild(e);
+      
+      var f = document.createElement('f');
+      var linkText6 = document.createTextNode("Tricep Dips Youtube Video");
+      f.appendChild(linkText6);
+      f.title = "my title text";
+      f.href = "https://www.youtube.com/watch?v=d_KZxkY_0cM&ab_channel=ScottHermanFitness";
+      document.body.appendChild(f);
+      
+      var g = document.createElement('g');
+      var linkText6 = document.createTextNode("Tricep Pulldown Youtube Video");
+      g.appendChild(linkText6);
+      g.title = "my title text";
+      g.href = "https://www.youtube.com/watch?v=2-LAMcpzODU&ab_channel=ScottHermanFitness";
+      document.body.appendChild(g);
+      
+      var h = document.createElement('h');
+      var linkText7 = document.createTextNode("Rows Youtube Video");
+      h.appendChild(linkText7);
+      h.title = "my title text";
+      h.href = "https://www.youtube.com/watch?v=GZbfZ033f74&ab_channel=ScottHermanFitness";
+      document.body.appendChild(h);
     </script>
   </body>
 </html>
