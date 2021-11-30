@@ -80,11 +80,32 @@ document.getElementsByTagName('body')[0].appendChild(a);
       document.body.appendChild(a);
     
       var b = document.createElement('b');
-      var linkText = document.createTextNode("Chest Fly Youtube Video");
-      b.appendChild(linkText);
+      var linkText2 = document.createTextNode("Chest Fly Youtube Video");
+      b.appendChild(linkText2);
       b.title = "my title text";
       b.href = "https://www.youtube.com/watch?v=Z57CtFmRMxA&ab_channel=LIVESTRONG.COM";
       document.body.appendChild(b);
+      
+      var c = document.createElement('c');
+      var linkText3 = document.createTextNode("Dips Youtube Video");
+      c.appendChild(linkText3);
+      c.title = "my title text";
+      c.href = "https://www.youtube.com/watch?v=yN6Q1UI_xkE&ab_channel=JeffNippard";
+      document.body.appendChild(c);
+      
+      var d = document.createElement('c');
+      var linkText4 = document.createTextNode("Dips Youtube Video");
+      d.appendChild(linkText4);
+      d.title = "my title text";
+      d.href = "https://www.youtube.com/watch?v=X-iV-cG8cYs&ab_channel=ColossusFitness";
+      document.body.appendChild(d);
+      
+      var e = document.createElement('c');
+      var linkText5 = document.createTextNode("Skullcrusher Youtube Video");
+      e.appendChild(linkText5);
+      e.title = "my title text";
+      e.href = "https://www.youtube.com/watch?v=d_KZxkY_0cM&ab_channel=ScottHermanFitness";
+      document.body.appendChild(e);
     </script>
   </body>
 </html>
