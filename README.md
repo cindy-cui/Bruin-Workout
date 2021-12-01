@@ -1,5 +1,7 @@
 # Bruin-Workout
 
+## Members
+Cindy Cui, Seonggeun Park, Benson Har, Daniel Shim, Dennis Li
 
 ## Usage 
 
