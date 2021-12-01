@@ -1,26 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-const YoutubeEmbed = ({ embedId }) => (
-  <div className="video-responsive">
-    <iframe
-      width="853"
-      height="480"
-      src={`https://www.youtube.com/watch?v=bEv6CCg2BC8&ab_channel=JeffNippard`}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      title="Embedded youtube"
-    />
-  </div>
-);
-
-YoutubeEmbed.propTypes = {
-  embedId: PropTypes.string.isRequired
-};
-
-export default YoutubeEmbed;
-
 class Workout{
     constructor(name, type, url){
         this.name = name;
@@ -39,7 +16,7 @@ class Workout{
 }
 
 
-let benchPress = new Workout("BenchPress", "chest", "https://www.youtube.com/watch?v=SCVCLChPQFY&ab_channel=CrossFit%C2%AE");
+let benchPress = new Workout("BenchPress", "chest", "https://www.youtube.com/embed/SCVCLChPQFY");
 let chestFly = new Workout("ChestFly", "chest", "https://www.youtube.com/watch?v=Z57CtFmRMxA&ab_channel=LIVESTRONG.COM");
 let dips = new Workout("Dips", "chest", "https://www.youtube.com/watch?v=yN6Q1UI_xkE&ab_channel=JeffNippard");
 
