@@ -24,8 +24,8 @@ npm install -g npm
 Next, install the following using npm, 
 - react router dom 
   - command: ``` $ npm install react-router-dom@6 ```
-- Firebase app module 
-  - command: ``` $ npm install --save @react-native-firebase/app ```
+- Firebase 
+  - command: ``` $ npm install firebase ```
 - MUI (react component library) 
   - command: ```npm install @mui/material```
 
@@ -40,3 +40,6 @@ You can access the web app through http://localhost:3000
 
 
 ## Description
+
+
+Our project is an implementation of a workout planner that allows users to construct a weekly routine workout schedule to plan their workouts and find exercises to add into their workouts. We used a React frontend, as well as a Node backend that communicates with Google Firebase and Firestore. We implemented the login with Firebase and user data storage with Firestore. 
