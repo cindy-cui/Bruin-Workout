@@ -16,15 +16,9 @@ export default function PlannerItem({ info }) {
                 {/* <Typography variant="h7">
                     {info.day}
                 </Typography> */}
-                <CardHeader title={ info.day } />
-                {/* <CardMedia
-                    component="img"
-                    height="100"
-                    image={ info.workout.img }
-                    alt={ info.workout.alt }
-                /> */}
+                <CardHeader titleTypographyProps={{ variant:'h7' }} title={ info.day } />
                 <CardContent>
-                    <Typography>
+                    <Typography variant="h8">
                         { info.workout }
                     </Typography>
                 </CardContent>

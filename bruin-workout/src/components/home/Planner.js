@@ -1,6 +1,7 @@
 //the planner showing the workouts
 import React from "react";
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import PlannerItem, { plannerInfo } from './PlannerItem'
 
 
@@ -16,7 +17,7 @@ export default function Planner(props) {
     let sunday = plannerInfo("sunday", workoutSchedule.sunday.name);
 
     return (
-        <Grid container direction="row">
+        <Grid container direction="row" >
             <Grid item>
                 <PlannerItem info={monday} />
             </Grid>

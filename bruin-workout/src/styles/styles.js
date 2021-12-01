@@ -5,7 +5,7 @@ export default {
         height: '100vh'
     },
     container: {
-        padding: '5vw'
+        // padding: '5vw'
     },
     profileButton: {
         color: '#FFFFFF '
