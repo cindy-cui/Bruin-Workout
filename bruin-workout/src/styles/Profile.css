@@ -21,7 +21,7 @@ h2 {
 .workout-list {
     position: absolute;
     background-color: #C4C4C4;
-    height: 60%;
+    height: 50%;
     width: 20%;
     /* height: 40vh; */
     /* width: 20vw; */
@@ -91,11 +91,11 @@ h2 {
 .workout-filters {
     position: absolute;
     background-color: #C4C4C4;
-    height: 10%;
     width: 20%;
-    bottom: 70%;
+    bottom: 60%;
     left: 10%;
     border: thin solid black;
+    border-bottom: none;
 }
 
 #profile-search-container {
@@ -112,8 +112,48 @@ h2 {
     width: 7vw;
 }
 
+<<<<<<< HEAD
 .planner {
     width: 65vw !important;
     padding-left: 5% !important;
     margin-top: 5% !important;
+=======
+.filter-list {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+}
+
+.filter-list > li {
+    border-bottom: thin solid black;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.filter-list > li:hover {
+    cursor: pointer;
+    background-color: #6E6E6E;
+}
+
+#filter-title {
+    font-weight: bold;
+    border-bottom: thin solid black;
+    line-height: 30px;
+}
+
+.profile-search-results {
+    background-color: #B11010;
+    font-size: 12px;
+    position: absolute;
+    left: 110%;
+    bottom: 1%;
+    border: thin solid black;
+    width: 100%;
+}
+
+.profile-search-results > ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+>>>>>>> ed33baf839613e8a247e878b8d7e227a39400f5a
 }

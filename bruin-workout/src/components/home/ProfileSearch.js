@@ -48,8 +48,9 @@ export default function ProfileSearch(){
     async function showProfile(id){//this method gives profile information from each search result
         //after the corresponding button is clicked
         const result= await getData(id);
-        setSearchResults(<div>
+        setSearchResults(<div className="profile-search-results">
             <ul>
+                <li>Username: {result.username}</li>
                 <li>Age: {result.age}</li>
                 <li>Height: {result.height}</li>
                 <li>Ethnicity: {result.ethnicity}</li>
