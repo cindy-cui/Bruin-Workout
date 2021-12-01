@@ -112,12 +112,12 @@ h2 {
     width: 7vw;
 }
 
-<<<<<<< HEAD
 .planner {
     width: 65vw !important;
     padding-left: 5% !important;
     margin-top: 5% !important;
-=======
+}
+
 .filter-list {
     list-style-type: none; /* Remove bullets */
     padding: 0; /* Remove padding */
@@ -155,5 +155,4 @@ h2 {
     list-style-type: none; /* Remove bullets */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
->>>>>>> ed33baf839613e8a247e878b8d7e227a39400f5a
 }

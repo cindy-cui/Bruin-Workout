@@ -35,24 +35,6 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-<<<<<<< HEAD
-=======
-function WorkoutListAndFilter(props) {
-    return(
-        <React.Fragment>
-            <Grid item>
-                {/* Filter feature */}
-                <List handleClick={ props.handleClick }/>
-            </Grid>
-            <Grid item>
-                <Filters />
-                {/*<Filters />*/}
-            </Grid>
-        </React.Fragment>
-    );
-}
-
->>>>>>> ed33baf839613e8a247e878b8d7e227a39400f5a
 function ScheduleAndSubWindows(props) {
     return(
         <React.Fragment>

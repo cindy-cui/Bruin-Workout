@@ -16,7 +16,7 @@ export default function PlannerItem({ info }) {
                 {/* <Typography variant="h7">
                     {info.day}
                 </Typography> */}
-                <CardHeader titleTypographyProps={{ variant:'h6' }} title={ info.day } />
+                <CardHeader titleTypographyProps={{ variant:'h7' }} title={ info.day } />
                 <CardContent>
                     <Typography variant="h8">
                         { info.workout }
