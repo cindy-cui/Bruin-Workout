@@ -102,13 +102,13 @@ export default function Options(props){//comments by Daniel Shim
             <button onClick={()=>{addWorkout(Workouts[props.index],"friday")}}> Add workout to friday</button>
             <button onClick={()=>{addWorkout(Workouts[props.index],"saturday")}}> Add workout to saturday</button>
             <button onClick={()=>{addWorkout(Workouts[props.index],"sunday")}}> Add workout to sunday</button>
-            <button onClick={()=>{removeWorkout("monday")}}>Remove workout to monday</button>
-            <button onClick={()=>{removeWorkout("tuesday")}}>Remove workout to tuesday</button>
-            <button onClick={()=>{removeWorkout("wednesday")}}>Remove workout to wednesday</button>
-            <button onClick={()=>{removeWorkout("thursday")}}>Remove workout to thursday</button>
-            <button onClick={()=>{removeWorkout("friday")}}>Remove workout to friday</button>
-            <button onClick={()=>{removeWorkout("saturda>")}}>Remove workout to saturday</button>
-            <button onClick={()=>{removeWorkout("sunday")}}>Remove workout to sunday</button>
+            <button onClick={()=>{removeWorkout("monday")}}>Remove workout from monday</button>
+            <button onClick={()=>{removeWorkout("tuesday")}}>Remove workout from tuesday</button>
+            <button onClick={()=>{removeWorkout("wednesday")}}>Remove workout from wednesday</button>
+            <button onClick={()=>{removeWorkout("thursday")}}>Remove workout from thursday</button>
+            <button onClick={()=>{removeWorkout("friday")}}>Remove workout from friday</button>
+            <button onClick={()=>{removeWorkout("saturday")}}>Remove workout from saturday</button>
+            <button onClick={()=>{removeWorkout("sunday")}}>Remove workout from sunday</button>
         </div>
         
     )

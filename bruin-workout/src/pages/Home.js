@@ -137,7 +137,7 @@ export default function Home(){ //props.id stores the current user's id
             </AppBar>
             <Box sx={{ marginTop: 3 }}>
                 <Typography variant="h7" color="inherit">
-                    Welcome, {display()}
+                    Fight on, {display()}
                 </Typography>
             </Box>
             <Box t={10} l={10} className={classes.container}>

@@ -34,7 +34,7 @@ let twentyOnes = new Workout("21s", "bicep", "https://www.youtube.com/embed/qf6K
 let hammerCurls = new Workout("HammerCurls", "bicep", "https://www.youtube.com/embed/zC3nLlEvin4");
 let inclineDumbbellCurl = new Workout("InclineDumbbellCurl", "bicep", "https://www.youtube.com/embed/soxrZlIl35U");
 
-let shrugs = new Workout("Shrugs", "shoulder", "https://www.youtube.com/embed/cJRVVxmytaM);
+let shrugs = new Workout("Shrugs", "shoulder", "https://www.youtube.com/embed/cJRVVxmytaM");
 let shoulderPress = new Workout("ShoulderPress", "shoulder", "https://www.youtube.com/embed/qEwKCR5JCog");
 
 let squat = new Workout("Squat", "legs", "https://www.youtube.com/embed/bEv6CCg2BC8");

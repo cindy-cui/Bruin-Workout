@@ -27,18 +27,18 @@ export default function Information(props) {
         <div className="workout-information">
             Workout Information
             <br/>
-            {workout} <br/>
+            <p style={{fontWeight: "bold",}}>{workout}</p> 
+            <div>
+                <p>Similar Workouts: {suggestions}</p>
+            </div>
             <iframe 
-            width="560" 
-            height="315" 
+            width="80%" 
+            height="60%" 
             src={workout_url} 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen></iframe>
-            <div>
-                <p>Similar Workouts: {suggestions}</p>
-            </div>
         </div>
     )
 }
