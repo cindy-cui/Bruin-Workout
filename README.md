@@ -9,7 +9,7 @@ $ git clone https://github.com/cindy-cui/Bruin-Workout
 ```
 Next, go into the project directory by running the command, 
 ```
-cd Bruin-Workout
+cd Bruin-Workout/bruin-workout
 ```
 
 To install Node.js using Homebrew, run the command: 
@@ -21,6 +21,11 @@ To install npm to run the project, run the following command on the command line
 ```
 npm install -g npm
 ```
+To get the react script working, run the following command on the command line:
+```
+npm install
+```
+
 Next, install the following using npm, 
 - react router dom 
   - command: ``` $ npm install react-router-dom@6 ```
@@ -28,7 +33,6 @@ Next, install the following using npm,
   - command: ``` $ npm install firebase ```
 - MUI (react component library) 
   - command: ```npm install @mui/material```
-
 
 
 Finally, to run the project on your local host, use the command: 
