@@ -35,20 +35,6 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-function WorkoutListAndFilter(props) {
-    return(
-        <React.Fragment>
-            <Grid item>
-                {/* Filter feature */}
-                <List handleClick={ props.handleClick }/>
-            </Grid>
-            <Grid item>
-                {/*<Filters />*/}
-            </Grid>
-        </React.Fragment>
-    );
-}
-
 function ScheduleAndSubWindows(props) {
     return(
         <React.Fragment>
@@ -60,15 +46,9 @@ function ScheduleAndSubWindows(props) {
                     <Planner workoutSchedule={props.workoutSchedule}/>
                 </Grid>                
             </Grid>
-            <Grid container item direction="row" xs={4} sm={4}  md={4} spacing={10}>
-                <Grid item>
-                    <Information workout={props.workout}/>
-                </Grid>
-                <Grid item>
-                <Options index={ props.index } workout={props.workout} setWorkoutSchedule={props.setWorkoutSchedule}
+            <Information workout={props.workout}/>
+            <Options index={ props.index } workout={props.workout} setWorkoutSchedule={props.setWorkoutSchedule}
                         workoutSchedule={props.workoutSchedule}/>          
-                </Grid>
-            </Grid>
         </React.Fragment>
     );
 }
@@ -162,10 +142,10 @@ export default function Home(){ //props.id stores the current user's id
             </Box>
             <Box t={10} l={10} className={classes.container}>
                 <Grid container columnSpacing={10} columns={11}>
-                    <Grid container item direction="column" xs={4} sm={4} md={4} lg={4} rowSpacing={3}>
-                        <WorkoutListAndFilter handleClick={handleClick}/>
+                    <Grid item xs={4} sm={4} md={4} lg={4}>
+                        <List handleClick={ handleClick }/>
                     </Grid>
-                    <Grid container item direction="column" xs={7} sm={7} md={7} rowSpacing={3}>
+                    <Grid container item direction="column" xs={7} sm={7} md={7} className="planner">
                         <ScheduleAndSubWindows workout={ chosenWorkout } index={ index }
                             setWorkoutSchedule={setWorkoutSchedule} workoutSchedule={workoutSchedule}/>
                     </Grid>

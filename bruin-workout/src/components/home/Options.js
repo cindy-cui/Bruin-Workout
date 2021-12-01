@@ -62,7 +62,9 @@ export default function Options(props){//comments by Daniel Shim
                  [workout_name]: "",
                  [workout_type]: "",
             });
-            updateWorkouts(day);
+            updateWorkouts(null, day);
+            navigate("/myprofile");
+            navigate("/home");
         }
     }
     //this updates our local state variable workouts with the new workout
@@ -75,7 +77,7 @@ export default function Options(props){//comments by Daniel Shim
         }
         let newSchedule = props.workoutSchedule
         // console.log(newSchedule)
-        console.log(day)
+        // console.log(day)
         newSchedule[day].name = addedName
         newSchedule[day].type = addedType
         // console.log(newSchedule)
@@ -100,6 +102,13 @@ export default function Options(props){//comments by Daniel Shim
             <button onClick={()=>{addWorkout(Workouts[props.index],"friday")}}> Add workout to friday</button>
             <button onClick={()=>{addWorkout(Workouts[props.index],"saturday")}}> Add workout to saturday</button>
             <button onClick={()=>{addWorkout(Workouts[props.index],"sunday")}}> Add workout to sunday</button>
+            <button onClick={()=>{removeWorkout("monday")}}>Remove workout to monday</button>
+            <button onClick={()=>{removeWorkout("tuesday")}}>Remove workout to tuesday</button>
+            <button onClick={()=>{removeWorkout("wednesday")}}>Remove workout to wednesday</button>
+            <button onClick={()=>{removeWorkout("thursday")}}>Remove workout to thursday</button>
+            <button onClick={()=>{removeWorkout("friday")}}>Remove workout to friday</button>
+            <button onClick={()=>{removeWorkout("saturda>")}}>Remove workout to saturday</button>
+            <button onClick={()=>{removeWorkout("sunday")}}>Remove workout to sunday</button>
         </div>
         
     )
